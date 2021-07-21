@@ -35,3 +35,4 @@ jobs:
         uses: tsuyoshicho/action-mypy@v3.1.0
         with:
           fail_on_error: true
+          target: ai-python-package
