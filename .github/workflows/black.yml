@@ -34,5 +34,7 @@ jobs:
         # uses: tsuyoshicho/action-mypy@2160e947d397ac0be7f02c911c3a5bea3f498575
         uses: tsuyoshicho/action-mypy@v3.1.0
         with:
-          fail_on_error: true
-          target: ai-python-package
+          fail_on_error: true          
+          reporter: github-pr-review
+          workdir: ai-python-package
+
