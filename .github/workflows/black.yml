@@ -28,3 +28,10 @@ jobs:
         uses: reviewdog/action-suggester@v1
         with:
           tool_name: blackfmt
+          fail_on_error: true
+      - name: Run mypy with reviewdog
+        # You may pin to the exact commit or the version.
+        # uses: tsuyoshicho/action-mypy@2160e947d397ac0be7f02c911c3a5bea3f498575
+        uses: tsuyoshicho/action-mypy@v3.1.0
+        with:
+          fail_on_error: true
