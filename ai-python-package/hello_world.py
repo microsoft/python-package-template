@@ -6,9 +6,5 @@ def hello_world():
 
     print("good night")
 
-
-
-
-
     hello_world()
     good_night()
