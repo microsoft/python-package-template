@@ -18,7 +18,7 @@ readme = read("./README.md", encoding="utf-8")
 setuptools = "setuptools>=54.2.0,<=54.2.0"
 
 core_requires = read("./requirements.txt")
-test_requires = read("./test/requirements.txt")
+test_requires = read("./requirements.test.txt")
 
 EXTRAS = {
     "required": core_requires,
