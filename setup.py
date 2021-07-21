@@ -35,7 +35,7 @@ SETUP_REQUIRES = [
 
 
 setup(
-    name="a-python-package",
+    name="ai-python-package",
     version="0.0.1",
     description="Microsoft Python Package Template",
     long_description=readme,
