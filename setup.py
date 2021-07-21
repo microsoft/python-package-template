@@ -35,9 +35,9 @@ SETUP_REQUIRES = [
 
 
 setup(
-    name="ai-python",
-    version="0.2.2",
-    description="Microsoft AI Python Package",
+    name="a-python-package",
+    version="0.0.1",
+    description="Microsoft Python Package Template",
     long_description=readme,
     long_description_content_type="text/x-rst",
     author="Daniel Ciborowski",
@@ -50,7 +50,7 @@ setup(
     },
     license="MIT License",
     platforms=["Windows", "Linux", "macOS"],
-    keywords=["ai"],
+    keywords=["template"],
     classifiers=[
         'Intended Audience :: Science/Research',
         'License :: OSI Approved :: MIT License',
