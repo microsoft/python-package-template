@@ -17,3 +17,4 @@ jobs:
         uses: wemake-services/wemake-python-styleguide@0.15.3
         with:
           path: ai-python-package
+          reporter: github-pr-review
