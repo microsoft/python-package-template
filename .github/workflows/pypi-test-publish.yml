@@ -1,0 +1,57 @@
+name: Test Upload Python Package
+
+on:
+  workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+            python-version: '3.7'
+    - name: Setup Python
+      uses: actions/setup-python@v2.2.2
+      with:
+        python-version: 3.7    
+    - name: Install dependencies
+      run: |
+        python3.7 -m pip install --upgrade pip
+        python3.7 -m pip install virtualenv pip-tools
+        sudo add-apt-repository -y ppa:ubuntugis/ppa \
+        && sudo apt install -y \
+          gdal-bin libgdal-dev
+
+        mv requirements.txt requirements.in
+        touch requirements.txt
+        echo "" >> requirements.in
+        cat requirements.linked.in >> requirements.in
+        pip-compile -v requirements.in
+
+        cd ai-python
+
+        requirements=$(find . -type f -name "*requirements*" | paste -sd " ")
+
+        for req in $requirements
+        do
+          mv $req temp.in
+          echo "-c ../requirements.txt" >> temp.in	
+          touch $req
+          pip-compile temp.in -o $req
+        done
+
+        cd ..
+
+        python setup.py sdist bdist_wheel
+    - name: Publish package
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ secrets.TEST_PYPI_PASSWORD }}
+        repository_url: https://test.pypi.org/legacy/
+    - name: Install dependencies
+      run: |
+        python3.7 -m pip install --upgrade pip
+        python3.7 -m pip install virtualenv pip-tools
+        pip-compile --extra-index-url https://test.pypi.org/simple
+          ai-python-package[tests]
