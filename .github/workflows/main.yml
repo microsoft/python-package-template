@@ -15,6 +15,9 @@ jobs:
 
       - name: wemake-python-styleguide
         uses: wemake-services/wemake-python-styleguide@0.15.3
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         with:
           path: ai-python-package
           reporter: github-pr-review
+          github_token: ${{ github.token }}
