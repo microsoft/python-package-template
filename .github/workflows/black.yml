@@ -29,18 +29,3 @@ jobs:
         with:
           tool_name: blackfmt
           fail_on_error: true
-      - name: Run mypy with reviewdog
-        # You may pin to the exact commit or the version.
-        # uses: tsuyoshicho/action-mypy@2160e947d397ac0be7f02c911c3a5bea3f498575
-        uses: tsuyoshicho/action-mypy@v3.1.0
-        with:
-          reporter: github-pr-review
-          workdir: ai-python-package
-      - uses: jordemort/action-pyright@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # You need this
-          reporter: github-pr-review # Change reporter.
-          lib: true          
-      - uses: ricardochaves/python-lint@v1.4.0
-        with:
-          python-root-list: "ai-python-package"
