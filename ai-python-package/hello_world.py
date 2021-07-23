@@ -1,4 +1,5 @@
-def hello_world():
+def hello_world(i: int = 0) -> str:
+    "Doc Stringz"
     print("hello world")
 
 
@@ -8,5 +9,5 @@ def good_night():
 
     
 def hello_goodbye():
-    hello_world()
+    hello_world("x")
     good_night()
