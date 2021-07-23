@@ -1,0 +1,17 @@
+name: reviewdog
+on: [pull_request]
+jobs:
+  pylint:
+    name: runner / pylint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dciborow/action-pylint@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
+          reporter: github-pr-review
+          # Change reporter level if you need.
+          # GitHub Status Check won't become failure with warning.
+          workdir: ai-python-package
+          level: warning
