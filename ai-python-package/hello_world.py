@@ -9,5 +9,8 @@ def good_night():
 
     
 def hello_goodbye():
+    """
+    Little Doc String
+    """
     hello_world("x")
     good_night()
