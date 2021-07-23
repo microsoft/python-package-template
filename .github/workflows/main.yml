@@ -20,4 +20,3 @@ jobs:
         with:
           path: ai-python-package
           reporter: github-pr-review
-          github_token: ${{ github.token }}
