@@ -11,6 +11,7 @@ unsafe-load-any-extension=no
 [MESSAGES CONTROL]
 confidence=
 enable=c-extension-no-member
+
 [REPORTS]
 evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
 output-format=text
@@ -19,6 +20,7 @@ score=yes
 [REFACTORING]
 max-nested-blocks=5
 never-returning-functions=sys.exit
+
 [BASIC]
 argument-naming-style=snake_case
 attr-naming-style=snake_case
@@ -53,6 +55,7 @@ name-group=
 no-docstring-rgx=^_
 property-classes=abc.abstractproperty
 variable-naming-style=snake_case
+
 [FORMAT]
 expected-line-ending-format=
 ignore-long-lines=^\s*(# )?.*['"]?<?https?://\S+>?
@@ -64,26 +67,32 @@ no-space-check=trailing-comma,
                dict-separator
 single-line-class-stmt=no
 single-line-if-stmt=no
+
 [LOGGING]
 logging-format-style=old
 logging-modules=logging
+
 [MISCELLANEOUS]
 notes=FIXME,
       XXX,
       TODO
+      
 [SIMILARITIES]
 ignore-comments=yes
 ignore-docstrings=yes
 ignore-imports=yes
 min-similarity-lines=7
+
 [SPELLING]
 max-spelling-suggestions=4
 spelling-dict=
 spelling-ignore-words=
 spelling-private-dict-file=
 spelling-store-unknown-words=no
+
 [STRING]
 check-str-concat-over-line-jumps=no
+
 [TYPECHECK]
 contextmanager-decorators=contextlib.contextmanager
 generated-members=numpy.*,np.*,pyspark.sql.functions,collect_list
@@ -96,6 +105,7 @@ missing-member-hint=yes
 missing-member-hint-distance=1
 missing-member-max-choices=1
 signature-mutators=
+
 [VARIABLES]
 additional-builtins=dbutils
 allow-global-unused-variables=yes
@@ -118,6 +128,7 @@ exclude-protected=_asdict,
                   _make
 valid-classmethod-first-arg=cls
 valid-metaclass-classmethod-first-arg=cls
+
 [DESIGN]
 max-args=5
 max-attributes=7
