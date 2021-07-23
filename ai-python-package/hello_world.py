@@ -4,3 +4,9 @@ def hello_world():
 
 def good_night():
     print("good night")
+    return
+
+    
+def hello_goodbye():
+    hello_world()
+    good_night()
