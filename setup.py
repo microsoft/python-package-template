@@ -26,11 +26,6 @@ EXTRAS = {
 }
 
 SETUP_REQUIRES = [
-    "jupyter-packaging==0.7.12",
-    "numpy==1.19.5",
-    "pip-tools==5.5.0",
-    "scikit-build==0.11.1",
-    "scipy==1.4.1",
 ]
 
 
