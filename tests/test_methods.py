@@ -10,7 +10,8 @@ def unit_test_mocks(monkeypatch):
   """Include Mocks here to execute all commands offline and fast."""
   pass
 
-def test_hello():
+@pytest.mark.offline
+def test_hello(unit_test_mocks):
   hello_test()  
 
 @pytest.mark.online
