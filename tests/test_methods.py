@@ -2,7 +2,7 @@ import pytest
 
 from ai-python-package.hello_world import hello_world
 
-def hello_test()
+def hello_test():
   hello_world()
  
 @pytest.fixture
