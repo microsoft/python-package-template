@@ -14,3 +14,14 @@ def hello_goodbye():
     """
     hello_world("x")
     good_night()
+
+    
+class Greetings:
+    def __init__(input):
+        self.Input = input
+        
+    def getInput(self):
+        return self.Input
+    
+    def bigAdd(self):
+        return self.Input + self.Input + self.Input + self.Input + self.Input+ self.Input+ self.Input+ self.Input+ self.Input+ self.Input+ self.Input + self.Input + self.Input+ self.Input
