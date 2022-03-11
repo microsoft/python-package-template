@@ -22,7 +22,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # You need this
           reporter: github-pr-review # Change reporter.
-          lib: true          
       - uses: ricardochaves/python-lint@v1.4.0
         with:
           python-root-list: ${{ secrets.PACKAGE }}
