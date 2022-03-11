@@ -25,4 +25,4 @@ jobs:
           lib: true          
       - uses: ricardochaves/python-lint@v1.4.0
         with:
-          python-root-list: "ai-python-package"
+          python-root-list: ${{ secrets.PACKAGE }}
