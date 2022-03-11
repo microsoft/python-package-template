@@ -22,5 +22,5 @@ jobs:
           reporter: github-pr-review
           # Change reporter level if you need.
           # GitHub Status Check won't become failure with warning.
-          workdir: ai-python-package
+          workdir: ${{ secrets.PACKAGE }}
           level: warning
