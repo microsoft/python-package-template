@@ -26,4 +26,4 @@ jobs:
         uses: AndreasAugustin/actions-template-sync@v0.1.6-draft
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          source_repo_path: microsoft/ai-python-package
+          source_repo_path: microsoft/python-package-template
