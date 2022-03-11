@@ -24,4 +24,4 @@ jobs:
         uses: tsuyoshicho/action-mypy@v3.1.0
         with:
           reporter: github-pr-review
-          workdir: ai-python-package
+          workdir: ${{ secrets.PACKAGE }}
