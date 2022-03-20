@@ -17,10 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-        allow-no-subscriptions: true
     - name: Tox Env
       uses: paolorechia/pox@v1.0.1
       with:
