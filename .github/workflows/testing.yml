@@ -1,0 +1,40 @@
+name: Unit Testing
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - .github/workflows/unit_test.yml
+      - requirements.txt
+      - requirements.test.txt
+      - ${{ secrets.PACKAGE }}/**
+      - tests/**
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    name: Unit Testing / PyTest
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        allow-no-subscriptions: true
+    - name: Tox Env
+      uses: paolorechia/pox@v1.0.1
+      with:
+        tox_env: py38-unit
+    - name: Output coverage report
+      run: |
+        python -m pip install --upgrade coverage
+        echo "---------- coverage: platform -----------" > pytest-coverage.txt
+        coverage report -m --skip-covered >> pytest-coverage.txt
+        cat pytest-coverage.txt
+    # Show unit test code coverage in a pull request comment.
+    - name: Show coverage comment
+      if: ${{ github.event_name == 'pull_request' }}
+      uses: MishaKav/pytest-coverage-comment@v1.1.24
+      with:
+        pytest-coverage-path: pytest-coverage.txt
+        junitxml-path: pytest-results.xml
