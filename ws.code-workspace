@@ -11,6 +11,7 @@
         "editor.trimAutoWhitespace": true,
         "editor.formatOnSave": true,
         "editor.formatOnPaste": true,
+	"python.analysis.typeCheckingMode": true,
         "python.linting.enabled": true,
 		"python.formatting.provider": "black",
 		"python.formatting.blackArgs": [
