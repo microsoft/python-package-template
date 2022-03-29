@@ -1,5 +1,5 @@
 bandit==1.7.4
-black==22.1.0
+black==22.3.0
 check-manifest==0.48
 flake8-bugbear==22.1.11
 flake8-docstrings
