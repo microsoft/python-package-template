@@ -1,0 +1,105 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[flake8]
+max-line-length = 120
+select = "F,E,W,B,B901,B902,B903"
+exclude = [
+    ".eggs",
+    ".git",
+    ".tox",
+    "nssm",
+    "obj",
+    "out",
+    "packages",
+    "pywin32",
+    "tests",
+    "swagger_client"
+]
+ignore = "E722,B001,W503,E203"
+
+[project]
+name =  "ai_python_package"
+authors = [
+    {name = "Daniel Ciborowski", email = "dciborow@microsoft.com"},
+]
+description = "Sample Python Project for creating a new Python Module"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10"
+]
+requires-python = ">=3.7"
+dynamic = ["version"]
+
+[tool.bandit]
+exclude_dirs = ["build","dist","tests","scripts"]
+number = 4
+recursive = true
+skips = "B110,B311,B314,B404,B405,B406"
+targets = "src"
+
+[tool.black]
+line-length = 120
+fast = true
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+fail_under = 100
+
+[project.optional-dependencies]
+test = [
+    "bandit[toml]",
+    "pyright",
+    "pytest >=2.7.3",
+    "pytest-cov",
+    "pylint",
+]
+
+[project.urls]
+Documentation = "https://github.com/microsoft/python-package-template/tree/main#readme"
+Source = "https://github.com/microsoft/python-package-template"
+Tracker = "https://github.com/microsoft/python-package-template/issues"
+
+[tool.pyright]
+include = ["src"]
+exclude = [
+    "**/node_modules",
+    "**/__pycache__",
+]
+venv = "env37"
+
+reportMissingImports = true
+reportMissingTypeStubs = false
+
+pythonVersion = "3.7"
+pythonPlatform = "Linux"
+
+executionEnvironments = [
+  { root = "src" }
+]
+
+[tool.pytest.ini_options]
+junit_family = "xunit2"
+markers = [
+    "integration: marks as integration test",
+    "notebooks: marks as notebook test",
+    "gpu: marks as gpu test",
+    "smoke: marks as smoke test",
+    "spark: marks tests which need Spark",
+    "slow: marks tests as slow",
+    "unit: fast offline tests",
+]
+
+[tox]
+envlist = "py3{7,8,9,10}"
+skip_missing_interpreters = true

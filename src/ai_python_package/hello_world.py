@@ -7,7 +7,7 @@ def good_night():
     print("good night")
     return
 
-    
+
 def hello_goodbye():
     hello_world("x")
     good_night()
