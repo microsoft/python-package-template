@@ -10,10 +10,10 @@ import os
 from setuptools import find_packages
 from distutils.core import setup
 
-def read(file_path, encoding):
+def read(file_path, encoding="utf-8"):
     return io.open(file_path, encoding=encoding).read()
 
-readme = read("./README.md", encoding="utf-8")
+readme = read("./README.md")
 
 setuptools = "setuptools>=54.2.0,<=54.2.0"
 
