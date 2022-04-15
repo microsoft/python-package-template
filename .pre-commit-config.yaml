@@ -8,7 +8,7 @@ repos:
     hooks:
       - id: black
         args:
-          - "--preview"
+          - "-l 120 --preview"
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
@@ -35,11 +35,6 @@ repos:
     hooks:
       - id: pyupgrade
         args: [--py37-plus]
-
-  - repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v1.20.0
-    hooks:
-      - id: setup-cfg-fmt
 
   - repo: https://github.com/hadialqattan/pycln
     rev: v1.2.5
