@@ -100,6 +100,60 @@ markers = [
     "unit: fast offline tests",
 ]
 
+[tool.tox]
+legacy_tox_ini = """
 [tox]
-envlist = "py3{7,8,9,10}"
-skip_missing_interpreters = true
+# py will use whatever the basepython `python` maps to from PATH
+# you can use py38, for example, to chosse a different version
+# See https://tox.readthedocs.io/en/latest/config.html#tox-environments
+envlist = py, cpu, gpu, spark, all
+
+
+# Default env settings
+[testenv]
+# similar to 'pip install <PAKCGE_NAME>-*.whl[all]'
+extras = all
+commands = 
+    # {posargs} will be substituded by arguments after the `--` when running.
+    # This will allow running subset of the test suite via tox. 
+    #
+    # EX: tox -- -m "not spark and not gpu" 
+    #     will pass {-m "not spark and not gpu"} to `pytest`
+    # See https://tox.readthedocs.io/en/latest/example/general.html for more details
+    pytest {posargs}
+
+[testenv:cpu]
+# i.e: 'pip install <PAKCGE_NAME>-*.whl[dev,examples]'
+# with this dependency subset, we should be able to run the test markers:
+# 1. "not notebooks and not spark and not gpu" (tests for general sdk utilities)
+# 2. "notebooks and not spark and not gpu" (tests for notebook example without extra dependencies)
+extras = dev,examples
+
+[testenv:gpu]
+# i.e: 'pip install <PAKCGE_NAME>-*.whl[dev,gpu,examples]'
+# with this dependency subset, we should be able to run the test markers:
+# 1. "gpu and not notebook and not spark" (tests for gpu utilities)
+# 2. "gpu and notebooks and not spark" (tests for notebooks needing gpu resources)
+extras = dev,gpu,examples
+
+[testenv:spark]
+# i.e: 'pip install <PAKCGE_NAME>-*.whl[dev,spark,examples]'
+# with this dependency subset, we should be able to run the test markers:
+# 1. "spark and not notebook and not spark" (test for spark utilities)
+# 2. "spark and notebooks and not spark" (tests for notebook using spark)
+extras = dev,spark,examples
+# We will need to redefine the following envrionment var in tox
+setenv =
+       PYSPARK_DRIVER_PYTHON = {envpython}
+       PYSPARK_PYTHON = {envpython}
+
+[testenv:all]
+# i.e: 'pip install <PAKCGE_NAME>-*.whl[all]'
+# with this, we should be able to run ANY tests
+extras = all
+
+[testenv:flake8]
+deps = flake8
+skip_install = True
+commands = flake8 .
+"""
