@@ -35,7 +35,7 @@ if shutil.which("conda"):
 def tests(session):
     """Run test suite with pytest."""
     session.create_tmp()
-    session.install("-r", "requirements-test.txt")
+    session.install("-r", "requirements.test.txt")
     session.install("-e", ".[tox_to_nox]")
     tests = session.posargs or ["tests/"]
     session.run(
