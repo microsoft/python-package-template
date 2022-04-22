@@ -54,9 +54,7 @@ def tests(session):
 def conda_tests(session):
     """Run test suite with pytest."""
     session.create_tmp()
-    session.conda_install(
-        "--file", "requirements-conda-test.txt", "--channel", "conda-forge"
-    )
+    session.conda_install("--file", "requirements-conda-test.txt", "--channel", "conda-forge")
     session.install("-e", ".", "--no-deps")
     tests = session.posargs or ["tests/"]
     session.run("pytest", *tests)
