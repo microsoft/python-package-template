@@ -1,4 +1,4 @@
-name: Twine / Publish PyPi Package
+name: Publish PyPi Package
 
 on:
   release:
