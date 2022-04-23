@@ -1,3 +1,9 @@
+#   ---------------------------------------------------------------------------------
+#   Copyright (c) Microsoft Corporation. All rights reserved.
+#   Licensed under the MIT License. See LICENSE in project root for information.
+#   ---------------------------------------------------------------------------------
+"""This is a sample python file for testing."""
+
 import pytest
 
 from ai_python_package.hello_world import hello_world
