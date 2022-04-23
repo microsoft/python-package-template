@@ -188,7 +188,7 @@ property-classes="abc.abstractproperty"
 variable-naming-style="snake_case"
 
 [tool.pylint.'FORMAT']
-ignore-long-lines="^\s*(# )?.*['\"]?<?https?://\S+>?"
+ignore-long-lines="^\\s*(# )?.*['\"]?<?https?://\\S+>?"
 indent-after-paren=4
 indent-string='    '
 max-line-length=120
