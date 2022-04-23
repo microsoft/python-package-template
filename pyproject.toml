@@ -39,6 +39,20 @@ classifiers = [
 requires-python = ">=3.7"
 dynamic = ["version"]
 
+[project.optional-dependencies]
+test = [
+    "bandit[toml]",
+    "pyright",
+    "pytest >=2.7.3",
+    "pytest-cov",
+    "pylint",
+]
+
+[project.urls]
+Documentation = "https://github.com/microsoft/python-package-template/tree/main#readme"
+Source = "https://github.com/microsoft/python-package-template"
+Tracker = "https://github.com/microsoft/python-package-template/issues"
+
 [tool.bandit]
 exclude_dirs = ["build","dist","tests","scripts"]
 number = 4
@@ -55,20 +69,6 @@ branch = true
 
 [tool.coverage.report]
 fail_under = 100
-
-[project.optional-dependencies]
-test = [
-    "bandit[toml]",
-    "pyright",
-    "pytest >=2.7.3",
-    "pytest-cov",
-    "pylint",
-]
-
-[project.urls]
-Documentation = "https://github.com/microsoft/python-package-template/tree/main#readme"
-Source = "https://github.com/microsoft/python-package-template"
-Tracker = "https://github.com/microsoft/python-package-template/issues"
 
 [tool.pyright]
 include = ["src"]
