@@ -1,11 +1,12 @@
 def hello_world(i: int = 0) -> str:
-    "Doc Stringz"
+    "Doc String"
     print("hello world")
+    return "string"
 
 
-def good_night():
+def good_night() -> str:
     print("good night")
-    return
+    return "string"
 
 
 def hello_goodbye():
