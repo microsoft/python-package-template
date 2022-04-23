@@ -28,14 +28,13 @@ jobs:
       - name: Flake8
         uses: reviewdog/action-flake8@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}        
+          github_token: ${{ secrets.GITHUB_TOKEN }}   
+          workdir: src
       - name: Pylint
         uses: dciborow/action-pylint@0.0.3        
         with:
-          github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review    
-          workdir: src
-          level: warning
+          github_token: ${{ secrets.GITHUB_TOKEN }} 
+          workdir: src          
       - name: Pyright
         uses: jakebailey/pyright-action@v1.1.0        
         with:
