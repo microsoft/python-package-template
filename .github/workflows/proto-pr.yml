@@ -1,0 +1,25 @@
+name: Pull Request
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  linting:
+    name: Static Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Python Static Analysis
+        uses: dciborow/pyaction@0.0.3        
+        with:
+          black: true
+          bandit: true
+          pylint: true
+          pyright: true
+          flake8: true
+          testing: 'all'
+          github_token: ${{ secrets.GITHUB_TOKEN }} 
+          workdir: src
