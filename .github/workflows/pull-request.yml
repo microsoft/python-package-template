@@ -24,7 +24,11 @@ jobs:
           tool_name: blackfmt
           fail_on_error: true      
       - name: Bandit
-        uses: jpetrucciani/bandit-check@1.6.2        
+        uses: jpetrucciani/bandit-check@1.6.2
+      - name: Flake8
+        uses: reviewdog/action-flake8@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}        
       - name: Pylint
         uses: dciborow/action-pylint@0.0.3        
         with:
