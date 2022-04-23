@@ -108,45 +108,29 @@ legacy_tox_ini = """
 # See https://tox.readthedocs.io/en/latest/config.html#tox-environments
 envlist = py, gpu, spark, all
 
-
-# Default env settings
 [testenv]
-# similar to 'pip install <PAKCGE_NAME>-*.whl'
-extras = all
 commands = 
-    # {posargs} will be substituded by arguments after the `--` when running.
-    # This will allow running subset of the test suite via tox. 
-    #
-    # EX: tox -- -m "not spark and not gpu" 
-    #     will pass {-m "not spark and not gpu"} to `pytest`
-    # See https://tox.readthedocs.io/en/latest/example/general.html for more details
-    pytest {posargs}
+    pytest -m "not gpu and not spark" {posargs}
 
 [testenv:gpu]
-# i.e: 'pip install <PAKCGE_NAME>-*.whl[gpu]'
-# with this dependency subset, we should be able to run the test markers:
-# 1. "gpu and not notebook and not spark" (tests for gpu utilities)
-# 2. "gpu and notebooks and not spark" (tests for notebooks needing gpu resources)
 extras = gpu
+commands = 
+    pytest -m "gpu" {posargs}
 
 [testenv:spark]
-# i.e: 'pip install <PAKCGE_NAME>-*.whl[spark]'
-# with this dependency subset, we should be able to run the test markers:
-# 1. "spark and not notebook and not spark" (test for spark utilities)
-# 2. "spark and notebooks and not spark" (tests for notebook using spark)
 extras = spark
 # We will need to redefine the following envrionment var in tox
 setenv =
        PYSPARK_DRIVER_PYTHON = {envpython}
        PYSPARK_PYTHON = {envpython}
+commands = 
+    pytest -m "spark" {posargs}
 
 [testenv:all]
-# i.e: 'pip install <PAKCGE_NAME>-*.whl[all]'
-# with this, we should be able to run ANY tests
 extras = all
-
-[testenv:flake8]
-deps = flake8
-skip_install = True
-commands = flake8 .
+setenv =
+       PYSPARK_DRIVER_PYTHON = {envpython}
+       PYSPARK_PYTHON = {envpython}
+commands = 
+    pytest {posargs}
 """
