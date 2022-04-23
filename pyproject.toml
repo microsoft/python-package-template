@@ -103,16 +103,15 @@ markers = [
 [tool.tox]
 legacy_tox_ini = """
 [tox]
-envlist = py, gpu, spark, all
+envlist = py, integration, spark, all
 
 [testenv]
 commands = 
-    pytest -m "not gpu and not spark" {posargs}
+    pytest -m "not integration and not spark" {posargs}
 
-[testenv:gpu]
-extras = gpu
+[testenv:integration]
 commands = 
-    pytest -m "gpu" {posargs}
+    pytest -m "integration" {posargs}
 
 [testenv:spark]
 extras = spark
