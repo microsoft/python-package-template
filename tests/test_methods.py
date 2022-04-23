@@ -24,7 +24,7 @@ def test_hello(unit_test_mocks):
     hello_test()
 
 
-def test_int_hello_online():
+def test_int_hello():
     """
     This test is marked implicitly as an integration test because the name contains "_init_"
     
