@@ -23,6 +23,9 @@ requires-python = ">=3.7"
 dynamic = ["version"]
 
 [project.optional-dependencies]
+spark = [
+    "pyspark>=3.0.0"
+]
 test = [
     "bandit[toml]==1.7.4",
     "black==22.1.0",
