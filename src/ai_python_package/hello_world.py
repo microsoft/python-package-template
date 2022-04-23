@@ -7,7 +7,7 @@
 def hello_world(i: int = 0) -> str:
     """Doc String"""
     print("hello world")
-    return "string"
+    return f"string-{i}"
 
 
 def good_night() -> str:
