@@ -8,7 +8,7 @@ repos:
     hooks:
       - id: black
         args:
-          - "-l 120 --preview"
+          - "--config pyproject.toml --preview"
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
