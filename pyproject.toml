@@ -90,7 +90,6 @@ markers = [
     "integration: marks as integration test",
     "notebooks: marks as notebook test",
     "gpu: marks as gpu test",
-    "smoke: marks as smoke test",
     "spark: marks tests which need Spark",
     "slow: marks tests as slow",
     "unit: fast offline tests",
