@@ -23,6 +23,10 @@ def test_hello(unit_test_mocks):
     hello_test()
 
 
-@pytest.mark.integration
-def test_hello_online():
+def test_int_hello_online():
+    """
+    This test is marked implicitly as an integration test because the name contains "_init"
+    
+    https://docs.pytest.org/en/6.2.x/example/markers.html#automatically-adding-markers-based-on-test-names
+    """
     hello_test()
