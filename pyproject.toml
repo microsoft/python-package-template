@@ -126,9 +126,6 @@ commands =
     pytest {posargs}
 """
 
-[tool.pylint.'MESSAGES CONTROL']
-enable="c-extension-no-member"
-
 [tool.pylint]
 extension-pkg-whitelist= [
     "numpy",
@@ -148,6 +145,7 @@ limit-inference-results=100
 persistent="yes"
 suggestion-mode="yes"
 unsafe-load-any-extension="no"
+
 [tool.pylint.'MESSAGES CONTROL']
 enable="c-extension-no-member"
 
@@ -156,6 +154,7 @@ evaluation="10.0 - ((float(5 * error + warning + refactor + convention) / statem
 output-format="text"
 reports="no"
 score="yes"
+
 [tool.pylint.'REFACTORING']
 max-nested-blocks=5
 never-returning-functions="sys.exit"
