@@ -103,9 +103,6 @@ markers = [
 [tool.tox]
 legacy_tox_ini = """
 [tox]
-# py will use whatever the basepython `python` maps to from PATH
-# you can use py38, for example, to chosse a different version
-# See https://tox.readthedocs.io/en/latest/config.html#tox-environments
 envlist = py, gpu, spark, all
 
 [testenv]
@@ -119,7 +116,6 @@ commands =
 
 [testenv:spark]
 extras = spark
-# We will need to redefine the following envrionment var in tox
 setenv =
        PYSPARK_DRIVER_PYTHON = {envpython}
        PYSPARK_PYTHON = {envpython}
