@@ -1,6 +1,6 @@
 # Python Project Template
 
-This project follows the Python Standards declared in [PEP 621](https://peps.python.org/pep-0621/). 
+This project follows the Python Standards declared in [PEP 621](https://peps.python.org/pep-0621/).
 This uses a pyproject.yaml to configuration the project. In this example, [flit](https://pypi.org/project/flit/) is used to simplify the build process, and publish to pypi.
 
 ## Project Organization
@@ -12,13 +12,13 @@ This uses a pyproject.yaml to configuration the project. In this example, [flit]
     - publish.yml - Publish wheels to [https://pypi.org/](https://pypi.org/)
     - pull-request.yml - Build and Test pull requests before commiting to main.
     - template-sync.yml - Update GitHub Repo with enhancments to base template
-- docs - collect documents (default format .md) 
+- docs - collect documents (default format .md)
 - src - place new source code here
   - python_package - sample package (this can be deleted when creating a new repository)
 - tests - contains Python based test cases to validation src code
 - .pre-commit-config.yaml - Contains various pre-check fixes for Python
 - .templateversionrc - used to track template version usage.
-- MANIFEST.in - Declares additional files to include in Python whl 
+- MANIFEST.in - Declares additional files to include in Python whl
 - pyproject.toml - Python Project Declaration
 - ws.code-workspace - Recommended configurations for [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -63,8 +63,8 @@ TODO: add info on flit configuration
 This section defines the project metadata, which may have been previously contained in a setup.py file.
 
 #### optional-dependencies
-This are otpimal dependancey groups that can be installed via 'pip install .[tests]'. 
-One group is included for dependancies required for testing. A second group is included for PySpark based dependancies. 
+This are otpimal dependancey groups that can be installed via 'pip install .[tests]'.
+One group is included for dependancies required for testing. A second group is included for PySpark based dependancies.
 
 ### tool
 This section defines the configurations for additional tools used to format, lint, type-check, and analysis Python code.
@@ -73,7 +73,7 @@ This section defines the configurations for additional tools used to format, lin
 Performs Security Static Analysis checks on code base.
 
 #### black
-Auto-formats code 
+Auto-formats code
 
 #### coverage
 Configures code coverage reports generatated during testing.
@@ -103,8 +103,8 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 ## Trademarks
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft
+trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
