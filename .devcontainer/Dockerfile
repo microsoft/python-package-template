@@ -14,7 +14,3 @@ RUN if [ -f "/tmp/conda-tmp/environment.yml" ]; then umask 0002 && /opt/conda/bi
 
 RUN conda install -y python=3.8 \
     && python3.8 -m pip install --upgrade pip flit
-    
-COPY pyproject.toml /tmp/
-COPY src /tmp/
-RUN python3.8 -m flit -f /tmp/pyproject.toml install
