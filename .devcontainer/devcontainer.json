@@ -30,7 +30,6 @@
 		"ms-python.vscode-pylance",
 		"ms-python.pylint",
 		"ms-python.black-formatter",
-		"ms-pyright.pyright",
 		"ms-vsliveshare.vsliveshare",
 		"VisualStudioExptTeam.vscodeintellicode"
 	],
