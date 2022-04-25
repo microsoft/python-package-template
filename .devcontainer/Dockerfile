@@ -17,3 +17,5 @@ RUN conda install -y python=3.8 \
     && python3.8 -m pip install \
         flit \
         pytest
+
+ENTRYPOINT ["flit", "install"]
