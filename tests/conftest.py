@@ -8,6 +8,7 @@ from typing import List
 from _pytest.nodes import Item
 import pytest
 
+
 def pytest_collection_modifyitems(items: List[Item]):
     for item in items:
         if "spark" in item.nodeid:
