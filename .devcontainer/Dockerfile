@@ -13,4 +13,7 @@ RUN if [ -f "/tmp/conda-tmp/environment.yml" ]; then umask 0002 && /opt/conda/bi
     && rm -rf /tmp/conda-tmp
 
 RUN conda install -y python=3.8 \
-    && python3.8 -m pip install --upgrade pip flit
+    && python3.8 -m pip install --upgrade pip
+    && python3.8 -m pip install \
+        flit \
+        pytest
