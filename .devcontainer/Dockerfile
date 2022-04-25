@@ -16,6 +16,9 @@ RUN conda install -y python=3.8 \
     && python3.8 -m pip install --upgrade pip \
     && python3.8 -m pip install \
         flit \
+        pyspark \
         pytest
 
+ENTRYPOINT ["source", "/opt/conda/bin/activate"]
+ENTRYPOINT ["conda", "activate", "base"]
 ENTRYPOINT ["flit", "install"]
