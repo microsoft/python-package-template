@@ -29,7 +29,10 @@
 		"ms-python.python",
 		"ms-python.vscode-pylance",
 		"ms-python.pylint",
-		"ms-python.black-formatter"
+		"ms-python.black-formatter",
+		"ms-pyright.pyright",
+		"ms-vsliveshare.vsliveshare",
+		"VisualStudioExptTeam.vscodeintellicode"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
