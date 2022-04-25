@@ -17,4 +17,5 @@ RUN conda install -y python=3.8 \
     
 COPY pyproject.toml /tmp/
 COPY src /tmp/
+COPY README.md /tmp/
 RUN python3.8 -m flit -f /tmp/pyproject.toml install
