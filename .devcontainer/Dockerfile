@@ -18,7 +18,3 @@ RUN conda install -y python=3.8 \
         flit \
         pyspark \
         pytest
-
-ENTRYPOINT ["source", "/opt/conda/bin/activate"]
-ENTRYPOINT ["conda", "activate", "base"]
-ENTRYPOINT ["flit", "install"]

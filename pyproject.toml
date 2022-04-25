@@ -85,6 +85,10 @@ executionEnvironments = [
 ]
 
 [tool.pytest.ini_options]
+pythonpath = [
+  "src"
+]
+testpaths = "tests"
 junit_family = "xunit2"
 markers = [
     "integration: marks as integration test",
@@ -101,11 +105,11 @@ legacy_tox_ini = """
 envlist = py, integration, spark, all
 
 [testenv]
-commands = 
+commands =
     pytest -m "not integration and not spark" {posargs}
 
 [testenv:integration]
-commands = 
+commands =
     pytest -m "integration" {posargs}
 
 [testenv:spark]
@@ -113,7 +117,7 @@ extras = spark
 setenv =
        PYSPARK_DRIVER_PYTHON = {envpython}
        PYSPARK_PYTHON = {envpython}
-commands = 
+commands =
     pytest -m "spark" {posargs}
 
 [testenv:all]
@@ -121,7 +125,7 @@ extras = all
 setenv =
        PYSPARK_DRIVER_PYTHON = {envpython}
        PYSPARK_PYTHON = {envpython}
-commands = 
+commands =
     pytest {posargs}
 """
 
@@ -209,7 +213,7 @@ notes= [
     "XXX",
     "TODO"
 ]
-      
+
 [tool.pylint.'SIMILARITIES']
 ignore-comments="yes"
 ignore-docstrings="yes"
