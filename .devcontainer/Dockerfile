@@ -20,6 +20,3 @@ RUN conda install -y python=3.8 \
 
 COPY .pre-commit-config.yaml .
 RUN git init . && pre-commit install-hooks
-
-COPY pyproject.toml .
-RUN python3.8 -c "import pathlib; from flit.install import Installer; Installer.from_ini_path(pathlib.Path('pyproject.toml')).install_requirements()"
