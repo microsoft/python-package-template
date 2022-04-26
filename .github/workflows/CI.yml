@@ -27,12 +27,12 @@ jobs:
         uses: dciborow/pyaction@0.0.15
         with:
           pylint: true
-          
+
       - name: Pyright
         uses: dciborow/pyaction@0.0.15
         with:          
           pyright: true
-          
+
       - name: Flake8
         uses: dciborow/pyaction@0.0.15
         with:          
@@ -50,16 +50,16 @@ jobs:
   publish:
     runs-on: ubuntu-latest    
     steps:
-    - uses: actions/checkout@v2
-    - if: ${{ github.event_name == 'release' }}
-      name: Publish
-      uses: dciborow/pyaction@0.0.15
-      with:
-        pypi_publish: true
-        pypi_password: ${{ secrets.PYPI_PASSWORD }}
-    - if: ${{ github.event_name != 'release' }}
-      name: Publish
-      uses: dciborow/pyaction@0.0.15
-      with:
-        test_publish: true
-        pypi_password: ${{ secrets.TEST_PYPI_PASSWORD  }}
+      - uses: actions/checkout@v2
+      - if: ${{ github.event_name == 'release' }}
+        name: Publish
+        uses: dciborow/pyaction@0.0.15
+        with:
+          pypi_publish: true
+          pypi_password: ${{ secrets.PYPI_PASSWORD }}
+      - if: ${{ github.event_name != 'release' }}
+        name: Publish
+        uses: dciborow/pyaction@0.0.15
+        with:
+          test_publish: true
+          pypi_password: ${{ secrets.TEST_PYPI_PASSWORD  }}
