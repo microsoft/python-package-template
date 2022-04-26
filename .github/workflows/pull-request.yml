@@ -10,6 +10,7 @@ jobs:
   linting:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Black
         uses: dciborow/pyaction@0.0.13
         with:
