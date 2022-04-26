@@ -34,7 +34,7 @@ jobs:
         uses: dciborow/pyaction@0.0.10
         with:          
           flake8: true
-          workdir: src
+
   testing:
     runs-on: ubuntu-latest
     steps:    
