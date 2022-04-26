@@ -14,27 +14,27 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Black
-        uses: dciborow/pyaction@0.0.13
+        uses: dciborow/pyaction@0.0.14
         with:
           black: true
 
       - name: Bandit
-        uses: dciborow/pyaction@0.0.13
+        uses: dciborow/pyaction@0.0.14
         with:          
           bandit: true
 
       - name: Pylint
-        uses: dciborow/pyaction@0.0.13
+        uses: dciborow/pyaction@0.0.14
         with:
           pylint: true
           
       - name: Pyright
-        uses: dciborow/pyaction@0.0.13
+        uses: dciborow/pyaction@0.0.14
         with:          
           pyright: true
           
       - name: Flake8
-        uses: dciborow/pyaction@0.0.13
+        uses: dciborow/pyaction@0.0.14
         with:          
           flake8: true
 
@@ -43,17 +43,23 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Pytest
-        uses: dciborow/pyaction@0.0.13
+        uses: dciborow/pyaction@0.0.14
         with:          
           testing: true
 
   publish:
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'release' }}
+    runs-on: ubuntu-latest    
     steps:
     - uses: actions/checkout@v2
-    - name: Publish
-      uses: dciborow/pyaction@0.0.13
+    - if: ${{ github.event_name == 'release' }}
+      name: Publish
+      uses: dciborow/pyaction@0.0.14
       with:
-        publish: true
+        pypi_publish: true
+        pypi_password: ${{ secrets.PYPI_PASSWORD }}
+    - if: ${{ github.event_name != 'release' }}
+      name: Publish
+      uses: dciborow/pyaction@0.0.14
+      with:
+        test_publish: true
         pypi_password: ${{ secrets.PYPI_PASSWORD }}
