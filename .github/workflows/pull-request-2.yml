@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Python Static Analysis
-        uses: dciborow/pyaction@0.0.3        
+        uses: dciborow/pyaction@0.0.4
         with:
           black: true
           bandit: true
