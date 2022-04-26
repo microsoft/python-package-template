@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: etils-actions/pypi-build-publish@v1
+    - name: Publish
+      uses: dciborow/pyaction@0.0.13
       with:
-        pypi-token: ${{ secrets.PYPI_PASSWORD }}
+        publish: true
+        pypi_password: ${{ secrets.PYPI_PASSWORD }}
