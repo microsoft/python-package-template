@@ -58,13 +58,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - if: ${{ github.event_name == 'release' }}
-        name: Publish
+        name: Publish to PyPi
         uses: dciborow/pyaction@0.0.21
         with:
           pypi_publish: true
           pypi_password: ${{ secrets.PYPI_PASSWORD }}
       - if: ${{ github.event_name != 'release' }}
-        name: Publish
+        name: Publish to TestPyPi
         uses: dciborow/pyaction@0.0.21
         with:
           pypi_custom_publish: true
