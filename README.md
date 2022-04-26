@@ -87,6 +87,10 @@ Configures various test markers used during testing.
 #### pylint
 Performs Linting and Static Analysis. Any modifictions made by the auto-formater (black) are always considered correct.
 
+## Publish to PyPi from GitHub
+In order to publish to PyPi, a repostirory secret must be created, "PYPI_PASSWORD". In order to publish to the Test PyPi, a second secret must be added, "TEST_PYPI_PASSWORD". 
+
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
