@@ -31,7 +31,8 @@
 		"ms-python.pylint",
 		"ms-python.black-formatter",
 		"ms-vsliveshare.vsliveshare",
-		"ryanluker.vscode-coverage-gutters"
+		"ryanluker.vscode-coverage-gutters",
+		"bungcip.better-toml"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
