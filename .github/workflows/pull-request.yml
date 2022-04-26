@@ -62,4 +62,4 @@ jobs:
       uses: dciborow/pyaction@0.0.14
       with:
         test_publish: true
-        pypi_password: ${{ secrets.PYPI_PASSWORD }}
+        pypi_password: ${{ secrets.TEST_PYPI_PASSWORD  }}
