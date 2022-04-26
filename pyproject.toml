@@ -85,7 +85,7 @@ executionEnvironments = [
 ]
 
 [tool.pytest.ini_options]
-addopts = "--cov-report xml:coverage.xml --cov src --cov-fail-under 0 --cov-append tests"
+addopts = "--cov-report xml:coverage.xml --cov src --cov-fail-under 0 --cov-append"
 pythonpath = [
   "src"
 ]
