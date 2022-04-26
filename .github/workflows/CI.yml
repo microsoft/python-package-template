@@ -67,5 +67,5 @@ jobs:
         name: Publish
         uses: dciborow/pyaction@0.0.20
         with:
-          test_publish: true
+          pypi_custom_publish: true
           pypi_password: ${{ secrets.TEST_PYPI_PASSWORD  }}
