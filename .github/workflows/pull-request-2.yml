@@ -11,27 +11,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Black
-        uses: dciborow/pyaction@0.0.9
+        uses: dciborow/pyaction@0.0.10
         with:
           black: true
 
       - name: Bandit
-        uses: dciborow/pyaction@0.0.9
+        uses: dciborow/pyaction@0.0.10
         with:          
           bandit: true
 
       - name: Pylint
-        uses: dciborow/pyaction@0.0.9
+        uses: dciborow/pyaction@0.0.10
         with:
           pylint: true
           
       - name: Pyright
-        uses: dciborow/pyaction@0.0.9
+        uses: dciborow/pyaction@0.0.10
         with:          
           pyright: true
           
       - name: Flake8
-        uses: dciborow/pyaction@0.0.9
+        uses: dciborow/pyaction@0.0.10
         with:          
           flake8: true
           workdir: src
@@ -39,6 +39,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:    
       - name: Pytest
-        uses: dciborow/pyaction@0.0.9
+        uses: dciborow/pyaction@0.0.10
         with:          
           testing: true
