@@ -10,7 +10,7 @@ jobs:
   linting:
     runs-on: ubuntu-latest
     steps:
-      - uses: dciborow/pyaction@0.0.6
+      - uses: dciborow/pyaction@0.0.7
         with:
           black: true
           bandit: true
