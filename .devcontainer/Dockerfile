@@ -16,5 +16,10 @@ RUN conda install -y python=3.8 \
     && python3.8 -m pip install --upgrade pip \
     && python3.8 -m pip install \
         flit \
-        pyspark \
-        pytest
+        pre-commit \
+        pylint \
+        pytest \
+        pyspark
+
+COPY .pre-commit-config.yaml .
+RUN git init . && pre-commit install-hooks
