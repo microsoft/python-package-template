@@ -8,12 +8,9 @@ on:
 
 jobs:
   linting:
-    name: Static Analysis
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Python Static Analysis
-        uses: dciborow/pyaction@0.0.4
+      - uses: dciborow/pyaction@0.0.5
         with:
           black: true
           bandit: true
@@ -21,5 +18,4 @@ jobs:
           pyright: true
           flake8: true
           testing: 'all'
-          github_token: ${{ secrets.GITHUB_TOKEN }} 
           workdir: src
