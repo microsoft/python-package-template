@@ -4,6 +4,8 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  release:
+    types: [created]    
   workflow_dispatch:
 
 jobs:
@@ -38,8 +40,20 @@ jobs:
 
   testing:
     runs-on: ubuntu-latest
-    steps:    
+    steps:
+      - uses: actions/checkout@v2
       - name: Pytest
         uses: dciborow/pyaction@0.0.13
         with:          
           testing: true
+
+  publish:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'release' }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: Publish
+      uses: dciborow/pyaction@0.0.13
+      with:
+        publish: true
+        pypi_password: ${{ secrets.PYPI_PASSWORD }}
