@@ -31,7 +31,7 @@
 		"ms-python.pylint",
 		"ms-python.black-formatter",
 		"ms-vsliveshare.vsliveshare",
-		"VisualStudioExptTeam.vscodeintellicode"
+		"ryanluker.vscode-coverage-gutters"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],

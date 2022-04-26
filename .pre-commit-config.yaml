@@ -3,13 +3,6 @@ ci:
   autofix_commit_msg: "style: pre-commit fixes"
 
 repos:
-  - repo: https://github.com/psf/black
-    rev: "22.3.0"
-    hooks:
-      - id: black
-        args:
-          - "--config pyproject.toml --preview"
-
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
     hooks:
