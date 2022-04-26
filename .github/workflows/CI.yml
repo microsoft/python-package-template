@@ -1,4 +1,4 @@
-name: Pull Request
+name: Python CI
 on:
   push:
     branches: [ main ]
