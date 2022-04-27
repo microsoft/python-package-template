@@ -57,14 +57,16 @@ jobs:
     runs-on: ubuntu-latest    
     steps:
       - uses: actions/checkout@v2
+
       - if: ${{ github.event_name == 'push' }}
         run: sed -i -r 's/[0-9]\.[0-9]\.[0-9]+/&-beta${{ github.run_attempt }}/g' src/**/__init__.py
-      - if: ${{ github.event_name == 'release' || github.event_name == 'push' }}
+      - if: ${{ github.event_name == 'push' || github.event_name == 'release' }}
         name: Publish to PyPi
         uses: dciborow/pyaction@0.0.25
         with:
           pypi_publish: true
           pypi_password: ${{ secrets.PYPI_PASSWORD }}
+
       - if: ${{ github.event_name == 'pull_request' }}
         run: sed -i -r 's/[0-9]\.[0-9]\.[0-9]+/&-dev${{ github.run_attempt }}/g' src/**/__init__.py
       - if: ${{ github.event_name == 'pull_request' }}
