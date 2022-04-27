@@ -57,21 +57,17 @@ jobs:
     runs-on: ubuntu-latest    
     steps:
       - uses: actions/checkout@v2
-      - if: ${{ github.event_name == 'release' }}
+      - if: ${{ github.event_name == 'push' }}
+        run: sed -i -r 's/[0-9]\.[0-9]\.[0-9]+/&-beta${{ github.run_attempt }}/g' src/**/__init__.py
+      - if: ${{ github.event_name == 'release' || github.event_name == 'push' }}
         name: Publish to PyPi
         uses: dciborow/pyaction@0.0.25
         with:
           pypi_publish: true
           pypi_password: ${{ secrets.PYPI_PASSWORD }}
-      - if: ${{ github.event_name != 'release' }}
-        run: |
-          PLACEHOLDER='__version__ = "0.0.2"'
-          VERSION_FILES='src/*/__init__.py'
-          VERSION=$(echo $GITHUB_REF | sed 's#.*/v##')
-
-          RUN_ATTEMPT=${{ github.run_attempt }}
-          sed -i "s/$PLACEHOLDER/__version__ = \"${VERSION}\"/g" "$VERSION_FILE"
-      - if: ${{ github.event_name != 'release' }}
+      - if: ${{ github.event_name == 'pull_request' }}
+        run: sed -i -r 's/[0-9]\.[0-9]\.[0-9]+/&-dev${{ github.run_attempt }}/g' src/**/__init__.py
+      - if: ${{ github.event_name == 'pull_request' }}
         name: Publish to TestPyPi
         uses: dciborow/pyaction@0.0.25
         with:
