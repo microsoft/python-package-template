@@ -35,7 +35,8 @@ jobs:
           pytest_markers: ${{ matrix.markers }}
 
   publish:
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
+    if: ${{ secrets.PYPI_PASSWORD || secrets.TEST_PYPI_PASSWORD }}
     steps:
       - uses: actions/checkout@v2
 
