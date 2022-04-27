@@ -14,27 +14,27 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Black
-        uses: dciborow/pyaction@0.0.25
+        uses: dciborow/pyaction@0.0.26
         with:
           black: true
 
       - name: Bandit
-        uses: dciborow/pyaction@0.0.25
+        uses: dciborow/pyaction@0.0.26
         with:          
           bandit: true
 
       - name: Pylint
-        uses: dciborow/pyaction@0.0.25
+        uses: dciborow/pyaction@0.0.26
         with:
           pylint: true
 
       - name: Pyright
-        uses: dciborow/pyaction@0.0.25
+        uses: dciborow/pyaction@0.0.26
         with:          
           pyright: true
 
       - name: Flake8
-        uses: dciborow/pyaction@0.0.25
+        uses: dciborow/pyaction@0.0.26
         with:          
           flake8: true
 
@@ -43,12 +43,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Pytest / Unit Testing
-        uses: dciborow/pyaction@0.0.25
+        uses: dciborow/pyaction@0.0.26
         with:          
           pytest: true
 
       - name: Pytest / Integration Testing
-        uses: dciborow/pyaction@0.0.25
+        uses: dciborow/pyaction@0.0.26
         with:          
           pytest: true
           pytest_markers: '-m integration'
@@ -58,21 +58,26 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - if: ${{ github.event_name == 'push' }}
-        run: sed -i -r 's/[0-9]\.[0-9]\.[0-9]+/&-rc${{ github.run_attempt }}/g' src/**/__init__.py
-      - if: ${{ github.event_name == 'push' || github.event_name == 'release' }}
-        name: Publish to PyPi
-        uses: dciborow/pyaction@0.0.25
+      - if: ${{ github.event_name == 'release' }}
+        name: Publish Release to PyPi
+        uses: dciborow/pyaction@0.0.26
         with:
           pypi_publish: true
           pypi_password: ${{ secrets.PYPI_PASSWORD }}
 
-      - if: ${{ github.event_name == 'pull_request' }}
-        run: sed -i -r 's/[0-9]\.[0-9]\.[0-9]+/&-dev${{ github.run_attempt }}/g' src/**/__init__.py
-      - if: ${{ github.event_name == 'pull_request' }}
-        name: Publish to TestPyPi
-        uses: dciborow/pyaction@0.0.25
+      - if: ${{ github.event_name == 'push' }}
+        name: Publish RC to PyPi
+        uses: dciborow/pyaction@0.0.26
         with:
           pypi_publish: true
-          pypi_repo: testpypi
+          pypi_password: ${{ secrets.PYPI_PASSWORD }}
+          version_suffix: -rc${{ github.run_attempt }}
+
+      - if: ${{ github.event_name == 'pull_request' }}
+        name: Publish Snapshot to TestPyPi
+        uses: dciborow/pyaction@0.0.26
+        with:
+          pypi_publish: true          
           pypi_password: ${{ secrets.TEST_PYPI_PASSWORD  }}
+          pypi_repo: testpypi
+          version_suffix: -dev${{ github.run_attempt }}
