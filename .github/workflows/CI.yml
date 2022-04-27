@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: ${{ matrix.tools }}
-        uses: dciborow/pyaction@0.0.26
+        uses: dciborow/pyaction@0.0.27
         with:
           ${{ matrix.tools }}: true
 
@@ -29,7 +29,7 @@ jobs:
         markers: ['', '-m integration']
     steps:
       - uses: actions/checkout@v2
-      - uses: dciborow/pyaction@0.0.26
+      - uses: dciborow/pyaction@0.0.27
         with:          
           pytest: true
           pytest_markers: ${{ matrix.markers }}
@@ -41,22 +41,22 @@ jobs:
 
       - if: ${{ github.event_name == 'release' }}
         name: Publish Release to PyPi
-        uses: dciborow/pyaction@0.0.26
+        uses: dciborow/pyaction@0.0.27
         with:
           pypi_publish: true
           pypi_password: ${{ secrets.PYPI_PASSWORD }}
 
       - if: ${{ github.event_name == 'push' }}
         name: Publish RC to PyPi
-        uses: dciborow/pyaction@0.0.26
+        uses: dciborow/pyaction@0.0.27
         with:
           pypi_publish: true
           pypi_password: ${{ secrets.PYPI_PASSWORD }}
-          version_suffix: -rc${{ github.run_attempt }}
+          version_suffix: -rc${{ github.run_number }}-post${{ github.run_attempt }}
 
       - if: ${{ github.event_name == 'pull_request' }}
         name: Publish Snapshot to TestPyPi
-        uses: dciborow/pyaction@0.0.26
+        uses: dciborow/pyaction@0.0.27
         with:
           pypi_publish: true
           pypi_password: ${{ secrets.TEST_PYPI_PASSWORD  }}
