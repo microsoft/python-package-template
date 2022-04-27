@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        tools: ['black', 'bandit', 'pylint', 'pyright', 'flake8', 'pytest']
+        tools: ['black', 'bandit', 'pylint', 'pyright', 'flake8']
         include:
           - tool: pytest
             args: -m not integration and not gpu
