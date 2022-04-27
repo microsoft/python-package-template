@@ -27,35 +27,6 @@ jobs:
           ${{ matrix.tools }}: true
           args: ${{ matrix.args }}
 
-  linting:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        tools: ['black', 'bandit', 'pylint', 'pyright', 'flake8']
-    steps:
-      - uses: actions/checkout@v2
-      - name: ${{ matrix.tools }}
-        uses: dciborow/pyaction@0.0.28
-        with:
-          ${{ matrix.tools }}: true
-
-  testing:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
-      matrix:
-        include:
-          - tool: pytest
-            args: -m not integration and not gpu
-          - tool: pytest
-            args: -m integration
-    steps:
-      - uses: actions/checkout@v2
-      - uses: dciborow/pyaction@0.0.28
-        with:          
-          ${{ matrix.tool }}: true
-          args: ${{ matrix.args }}
-
   publish:
     runs-on: ubuntu-latest
     steps:
