@@ -26,7 +26,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        markers: ['', '-m integration']
+        markers: ['-m not integration and not gpu', '-m integration']
     steps:
       - uses: actions/checkout@v2
       - uses: dciborow/pyaction@0.0.27
