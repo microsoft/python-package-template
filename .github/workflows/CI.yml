@@ -59,7 +59,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - if: ${{ github.event_name == 'push' }}
-        run: sed -i -r 's/[0-9]\.[0-9]\.[0-9]+/&-beta${{ github.run_attempt }}/g' src/**/__init__.py
+        run: sed -i -r 's/[0-9]\.[0-9]\.[0-9]+/&-rc${{ github.run_attempt }}/g' src/**/__init__.py
       - if: ${{ github.event_name == 'push' || github.event_name == 'release' }}
         name: Publish to PyPi
         uses: dciborow/pyaction@0.0.25
