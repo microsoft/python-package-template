@@ -40,18 +40,16 @@ jobs:
 
   testing:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        markers: ['', '-m integration']
     steps:
       - uses: actions/checkout@v2
-      - name: Pytest / Unit Testing
-        uses: dciborow/pyaction@0.0.26
+      - uses: dciborow/pyaction@0.0.26
         with:          
           pytest: true
-
-      - name: Pytest / Integration Testing
-        uses: dciborow/pyaction@0.0.26
-        with:          
-          pytest: true
-          pytest_markers: '-m integration'
+          pytest_markers: ${{ matrix.markers }}
 
   publish:
     runs-on: ubuntu-latest    
