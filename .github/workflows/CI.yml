@@ -9,8 +9,25 @@ on:
   workflow_dispatch:
 
 jobs:
+  linting-matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        tools: ['black', 'bandit']
+    steps:
+      - uses: actions/checkout@v2
+      - name: ${{ matrix.tools }}
+        uses: dciborow/pyaction@0.0.26
+        with:
+          ${{ matrix.tools }}: true
+
   linting:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        markers: ['', '-m integration']
     steps:
       - uses: actions/checkout@v2
       - name: Black
