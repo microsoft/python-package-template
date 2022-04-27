@@ -15,9 +15,9 @@ jobs:
       matrix:
         tools: ['black', 'bandit', 'pylint', 'pyright', 'flake8']
         include:
-          - tool: pytest
+          - tools: pytest
             args: -m not integration and not gpu
-          - tool: pytest
+          - tools: pytest
             args: -m integration
     steps:
       - uses: actions/checkout@v2
