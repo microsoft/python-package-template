@@ -22,7 +22,7 @@ jobs:
         pip install black
     - name: Test dependencies
       run: |
-        black --config black.toml azure_gamedev tests;
+        black --config black.toml ai_python_package tests;
 
     - name: Commit changes
       if: always()
