@@ -1,0 +1,38 @@
+name: Black: Automatic Python Autoformatter
+
+on:
+  push:
+    branches-ignore:
+      - master
+    paths:
+      - '**.py'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install black
+    - name: Test dependencies
+      run: |
+        black --config black.toml azure_gamedev tests;
+
+    - name: Commit changes
+      if: always()
+      run: |
+        git config --global user.email "github-black-attack@noreply.github.com"
+        git config --global user.name "GIthub Black Attack"
+
+        git add $SAMPLEFOLDER_PATH
+
+        if ! git diff-index --quiet HEAD --; then
+          git commit -m "Autoformat with Black" --amend
+          git push origin ${GITHUB_REF##*/} --force-with-lease
+        fi
