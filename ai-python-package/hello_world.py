@@ -6,7 +6,6 @@ def hello_world(i: int = 0) -> str:
 def good_night():
     print("good night")
     x = 2
-    y = 5
     return
 
 
