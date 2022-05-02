@@ -3,7 +3,7 @@ name: Black / Automaticly Triggered Python Autoformatter
 on:
   push:
     branches-ignore:
-      - master
+      - ${{ github.event.repository.default_branch }}
     paths:
       - '**.py'
 
