@@ -29,6 +29,6 @@ jobs:
         git add ai-python-package
 
         if ! git diff-index --quiet HEAD --; then
-          git commit -m "Autoformat with Black" --amend
+          git commit -m "Autoformat with Black" --no-edit
           git push --force-with-lease
         fi
