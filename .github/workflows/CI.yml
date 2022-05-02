@@ -1,0 +1,31 @@
+name: Python CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [created]    
+  workflow_dispatch:
+
+jobs:
+  tooling:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        tools: ['black', 'bandit', 'pylint', 'pyright', 'flake8']
+        include:
+          - tools: pytest
+            args: -m not integration and not gpu
+          - tools: pytest
+            args: -m integration
+    steps:
+      - uses: actions/checkout@v2
+      - name: ${{ matrix.tools }}
+        uses: dciborow/pyaction@0.0.28
+        with:
+          ${{ matrix.tools }}: true
+          args: ${{ matrix.args }}
+
+  publish:
+    uses: ./.github/workflows/publish.yml

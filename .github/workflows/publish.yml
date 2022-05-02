@@ -1,0 +1,33 @@
+name: Python Publish Workflow
+on:
+  workflow_call:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - if: ${{ github.event_name == 'release' && secrets.PYPI_PASSWORD != '' }}
+        name: Publish Release to PyPi
+        uses: dciborow/pyaction@0.0.28
+        with:
+          pypi_publish: true
+          pypi_password: ${{ secrets.PYPI_PASSWORD }}
+
+      - if: ${{ github.event_name == 'push' && secrets.PYPI_PASSWORD != '' }}
+        name: Publish RC to PyPi
+        uses: dciborow/pyaction@0.0.28
+        with:
+          pypi_publish: true
+          pypi_password: ${{ secrets.PYPI_PASSWORD }}
+          version_suffix: -rc${{ github.run_number }}-post${{ github.run_attempt }}
+
+      - if: ${{ github.event_name == 'pull_request' && secrets.TEST_PYPI_PASSWORD != '' }}
+        name: Publish Snapshot to TestPyPi
+        uses: dciborow/pyaction@0.0.28
+        with:
+          pypi_publish: true
+          pypi_password: ${{ secrets.TEST_PYPI_PASSWORD  }}
+          pypi_repo: testpypi
+          version_suffix: -post${{ github.run_number }}-dev${{ github.run_attempt }}
