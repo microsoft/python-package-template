@@ -21,14 +21,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install black
     - name: Test dependencies
-      run: black --config black.toml ai-python-package tests
+      run: black --config black.toml ai-python-package
     - name: Commit changes
       if: always()
       run: |
         git config --global user.email "github-black-attack@noreply.github.com"
         git config --global user.name "GIthub Black Attack"
 
-        git add .
+        git add ai-python-package
 
         if ! git diff-index --quiet HEAD --; then
           git commit -m "Autoformat with Black" --amend
