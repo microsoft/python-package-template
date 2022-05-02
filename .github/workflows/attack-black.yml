@@ -1,4 +1,4 @@
-name: Black: Automatic Python Autoformatter
+name: Black / Automatic Python Autoformatter
 
 on:
   push:
