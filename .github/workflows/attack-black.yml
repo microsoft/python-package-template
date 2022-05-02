@@ -34,5 +34,5 @@ jobs:
 
         if ! git diff-index --quiet HEAD --; then
           git commit -m "Autoformat with Black" --amend
-          git push origin ${GITHUB_REF##*/} --force-with-lease
+          git push --force-with-lease
         fi
