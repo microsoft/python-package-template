@@ -13,12 +13,14 @@ RUN if [ -f "/tmp/conda-tmp/environment.yml" ]; then umask 0002 && /opt/conda/bi
     && rm -rf /tmp/conda-tmp
 
 RUN conda install -y python=3.8 \
-    && python3.8 -m pip install --upgrade pip \
-    && python3.8 -m pip install \
-        pytest \
-        pytest-cov \
-        flit \
-        pre-commit
+    && python3.8 -m pip install --upgrade pip tox
+    
+COPY requirements.test.txt /tmp/
+RUN python3.8 -m pip install -r /tmp/requirements.test.txt
 
-COPY .pre-commit-config.yaml .
-RUN git init . && pre-commit install-hooks
+COPY requirements.txt /tmp/
+RUN python3.8 -m pip install -r /tmp/requirements.txt
+
+# [Optional] Uncomment this section to install additional OS packages.
+# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+#     && apt-get -y install --no-install-recommends <your-package-list-here>
