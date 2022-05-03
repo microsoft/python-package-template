@@ -5,38 +5,34 @@
 		}
 	],
 	"settings": {
-        "files.trimTrailingWhitespace": true,
-        "files.autoSave": "onFocusChange",
-        "python.linting.lintOnSave": true,
-        "editor.trimAutoWhitespace": true,
-        "editor.formatOnSave": true,
-        "editor.formatOnPaste": true,
-	"python.analysis.typeCheckingMode": true,
-        "python.linting.enabled": true,
+		"files.trimTrailingWhitespace": true,
+		"files.autoSave": "onFocusChange",
+		"python.linting.lintOnSave": true,
+		"editor.trimAutoWhitespace": true,
+		"editor.formatOnSave": true,
+		"editor.formatOnPaste": true,
+		"python.analysis.typeCheckingMode": "strict",
+		"python.linting.enabled": true,
 		"python.formatting.provider": "black",
 		"python.formatting.blackArgs": [
 			"--config",
-			"black.toml"
+			"pyproject.toml"
 		],
 		"python.linting.banditEnabled": true,
 		"python.linting.banditArgs": [
 			"--configfile",
-			"tox.ini"
+			"pyproject.toml"
 		],
 		"python.linting.flake8Enabled": true,
 		"python.linting.flake8Args": [
 			"--config",
-			"tox.ini"
+			".flake8"
 		],
 		"python.linting.mypyEnabled": true,
 		"python.linting.mypyArgs": [
 			"--config-file",
-			"tox.ini"
+			".pyproject.toml"
 		],
-		"python.linting.pylintEnabled": true,
-		"python.linting.pylintArgs": [
-			"--rcfile",
-			".pylintrc"
-		]
+		"python.linting.pylintEnabled": true
 	}
 }
