@@ -1,0 +1,18 @@
+files:
+  - ".gitignore"  # include
+  - ".github"
+  - ".vscode"
+  - "tests/conftest.py"
+  - ".flake8"
+  - ".pre-commit-config.yml"
+  - ".pypirc"
+  - "docs"
+  - "CODE_OF_CONDUCT.md"
+  - "LICENSE"
+  - "README.md"
+  - "SECURITY.md"
+  - "SUPPORT.md"
+  - "pyproject.toml"
+
+  - "!.github/workflows/template-sync.yml"
+  - "!.github/template-sync.yml"
