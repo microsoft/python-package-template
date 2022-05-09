@@ -1,3 +1,6 @@
+dependents:
+  - "az-gamedev-spark"
+
 files:
   - ".gitignore"  # include
   - ".github"
@@ -7,6 +10,7 @@ files:
   - ".pre-commit-config.yml"
   - ".pypirc"
   - "docs"
+  - "src/README.md"
   - "CODE_OF_CONDUCT.md"
   - "LICENSE"
   - "README.md"
@@ -16,3 +20,5 @@ files:
 
   - "!.github/workflows/template-sync.yml"
   - "!.github/template-sync.yml"
+  - "!src/python_project"
+  - "!tests/test_methods.py"
