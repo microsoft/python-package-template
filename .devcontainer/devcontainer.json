@@ -56,7 +56,7 @@
 		"ms-python.python",
 		"ms-python.vscode-pylance",
 		"ms-python.pylint",
-		"ms-python.black-formatter",
+		"ms-python.black-formatter@2022.1.11301002-insiders",
 		"ms-vsliveshare.vsliveshare",
 		"ryanluker.vscode-coverage-gutters",
 		"bungcip.better-toml"
