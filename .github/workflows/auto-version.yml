@@ -1,0 +1,47 @@
+name: Black / Automaticly Triggered Python Autoformatter
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**.py'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.3.4
+      with:
+        fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+
+    - name: Find sample folder
+      run: |
+        git status
+        # Get path of last file checked in
+        pwd
+        cd $GITHUB_WORKSPACE
+        pwd
+        LAST_PATH=$( git log --pretty="" --name-only -n 100 origin/master... -- | fgrep -v ".github" | head -1 )
+        echo Last file modified: $LAST_PATH
+        # Look for the main template file in this file's path or parents
+        SAMPLEFOLDER_PATH=$( dirname "$LAST_PATH" )
+        echo Last folder modified: $SAMPLEFOLDER_PATH
+
+#     - run: |
+#         python -m pip install --upgrade pip
+#         python -m pip install black
+#         python -m black --config black.toml azureiai tests
+
+#         git config --global user.email "auto-black@noreply.github.com"
+#         git config --global user.name "Auto Black"
+
+#         git add azureiai tests
+
+#         if ! git diff-index --quiet HEAD --; then
+#           git commit -m "Autoformat with Black" --no-edit
+#           git push --force-with-lease
+#         fi
