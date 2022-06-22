@@ -1,4 +1,4 @@
-name: Black / Automaticly Triggered Python Autoformatter
+name: Auto Version
 
 on:
   pull_request:
