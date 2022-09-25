@@ -9,23 +9,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  tooling:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        tools: ['black', 'bandit', 'pylint', 'pyright', 'flake8']
-        include:
-          - tools: pytest
-            args: -m not integration and not gpu
-          - tools: pytest
-            args: -m integration
-    steps:
-      - uses: actions/checkout@v2
-      - name: ${{ matrix.tools }}
-        uses: dciborow/pyaction@0.0.30
-        with:
-          ${{ matrix.tools }}: true
-          args: ${{ matrix.args }}
+  validation:
+    uses: microsoft/action-python/.github/workflows/validation.yml@0.1.1
 
   publish:
     runs-on: ubuntu-latest
