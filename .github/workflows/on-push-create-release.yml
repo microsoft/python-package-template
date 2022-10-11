@@ -9,8 +9,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  publish:
+  release:
     uses: microsoft/action-python/.github/workflows/on-push-create-release.yml@main
     secrets:
       PAT: ${{ secrets.PAT }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN   }}
+
+  publish:
+    uses: microsoft/action-python/.github/workflows/publish.yml@0.2.0
+    needs: [release]
+    secrets:
+      PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+      TEST_PYPI_PASSWORD: ${{ secrets.TEST_PYPI_PASSWORD  }}
