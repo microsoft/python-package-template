@@ -1,0 +1,16 @@
+name: Python Publish Workflow
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'pyproject.toml'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    uses: microsoft/action-python/.github/workflows/on-push-create-release.yml@main
+    secrets:
+      PAT: ${{ secrets.PAT }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN   }}
