@@ -1,4 +1,4 @@
-name: Upload Python Package
+name: Publish Python Package
 
 on:
   release:
@@ -7,26 +7,8 @@ on:
     workflows: ["Create new release"]
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Setup Python
-      uses: actions/setup-python@v2.2.2
-      with:
-        python-version: 3.7
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install setuptools wheel twine
-        python setup.py sdist bdist_wheel
-    - name: Publish package
-      uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        user: __token__
-        password: ${{ secrets.PYPI_PASSWORD }}
-    - name: Install dependencies
-      run: |
-        python3.7 -m pip install --upgrade pip
-        python3.7 -m pip install virtualenv pip-tools
-        pip install az-partner-center-cli
+  publish:
+    uses: microsoft/action-python/.github/workflows/publish.yml@0.2.0
+    secrets:
+      PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+      TEST_PYPI_PASSWORD: ${{ secrets.TEST_PYPI_PASSWORD  }}
