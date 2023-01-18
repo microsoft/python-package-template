@@ -23,3 +23,6 @@ def good_night() -> str:
 def hello_goodbye():
     hello_world(1)
     good_night()
+
+def long_lines():
+    print("Test how the tools feel about very long lines. It should be okay with >80 but <120. Black should fix anyting >120.")
