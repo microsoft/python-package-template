@@ -15,7 +15,7 @@ This uses a pyproject.yaml to configuration the project. In this example, [flit]
 - docs - collect documents (default format .md)
 - src - place new source code here
   - python_package - sample package (this can be deleted when creating a new repository)
-- tests - contains Python based test cases to validation src code
+- tests - contains Python based test cases to validate src code
 - .pre-commit-config.yaml - Contains various pre-check fixes for Python
 - .templateversionrc - used to track template version usage.
 - MANIFEST.in - Declares additional files to include in Python whl
