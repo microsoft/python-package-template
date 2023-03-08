@@ -35,7 +35,7 @@ test = [
     "flake8-formatter_junit_xml",
     "flake8==4.0.1",
     "pre-commit==2.17.0",
-    "pylint==2.12.2",
+    "pylint==2.17.0",
     "pylint_junit",
     "pytest-cov==3.0.0",
     "pytest-mock<3.7.1",
