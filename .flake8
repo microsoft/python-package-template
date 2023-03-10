@@ -1,7 +1,7 @@
 [flake8]
 max-line-length = 120
 select = "F,E,W,B,B901,B902,B903"
-exclude = [
+exclude =
     ".eggs",
     ".git",
     ".tox",
@@ -12,5 +12,8 @@ exclude = [
     "pywin32",
     "tests",
     "swagger_client"
-]
-ignore = "E722,B001,W503,E203"
+ignore =
+    E722,
+    B001,
+    W503,
+    E203
