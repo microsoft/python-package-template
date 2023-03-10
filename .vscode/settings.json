@@ -9,6 +9,10 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
     },
+    "python.formatting.provider": "black",
+    "python.testing.pytestArgs": [],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
     "pylint.args": [
         "--rcfile=pyproject.toml"
     ],
@@ -21,7 +25,6 @@
     "black-formatter.path": [
         "/usr/local/py-utils/bin/black"
     ],
-    "python.formatting.provider": "black",
     "flake8.args": [
         "--config=.flake8"
     ],
