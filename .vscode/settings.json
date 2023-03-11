@@ -31,6 +31,5 @@
     ],
     "flake8.path": [
         "/usr/local/bin/flake8"
-    ],
-    "python.testing.autoTestDiscoverOnSaveEnabled": false
+    ]
 }

@@ -23,19 +23,19 @@
 				"GitHub.copilot"
 			],
 			"settings": {
-				"python.defaultInterpreterPath": "/usr/local/py-utils/bin/python",
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
 				"python.formatting.provider": "black",
 				"[python]": {
 					"editor.defaultFormatter": "ms-python.black-formatter"
 				},
 				"black-formatter.path": [
-					"/usr/local/py-utils/bin/black"
+					"/usr/local/bin/black"
 				],
 				"pylint.path": [
-					"/usr/local/py-utils/bin/pylint"
+					"/usr/local/bin/pylint"
 				],
 				"flake8.path": [
-					"/usr/local/py-utils/bin/flake8"
+					"/usr/local/bin/flake8"
 				]
 			}
 		}
