@@ -18,18 +18,18 @@
         "--rcfile=pyproject.toml"
     ],
     "pylint.path": [
-        "/usr/local/bin/pylint"
+        "/usr/local/py-utils/bin/pylint"
     ],
     "black-formatter.args": [
         "--config=pyproject.toml"
     ],
     "black-formatter.path": [
-        "/usr/local/bin/black"
+        "/usr/local/py-utils/bin/black"
     ],
     "flake8.args": [
         "--config=.flake8"
     ],
     "flake8.path": [
-        "/usr/local/bin/flake8"
+        "/usr/local/py-utils/bin/flake8"
     ]
 }
