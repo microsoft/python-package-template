@@ -33,9 +33,10 @@ test = [
     "flake8-bugbear==22.1.11",
     "flake8-docstrings",
     "flake8-formatter_junit_xml",
-    "flake8==4.0.1",
+    "flake8",
+    "flake8-pyproject",
     "pre-commit==2.17.0",
-    "pylint==2.12.2",
+    "pylint==2.17.0",
     "pylint_junit",
     "pytest-cov==3.0.0",
     "pytest-mock<3.7.1",
@@ -68,6 +69,28 @@ branch = true
 
 [tool.coverage.report]
 fail_under = 100
+
+[tool.flake8]
+max-line-length = 120
+select = "F,E,W,B,B901,B902,B903"
+exclude = [
+    ".eggs",
+    ".git",
+    ".tox",
+    "nssm",
+    "obj",
+    "out",
+    "packages",
+    "pywin32",
+    "tests",
+    "swagger_client"
+]
+ignore = [
+    "E722",
+    "B001",
+    "W503",
+    "E203"
+]
 
 [tool.pyright]
 include = ["src"]

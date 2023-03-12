@@ -27,7 +27,7 @@
         "/usr/local/py-utils/bin/black"
     ],
     "flake8.args": [
-        "--config=.flake8"
+        "--toml-config=pyproject.toml"
     ],
     "flake8.path": [
         "/usr/local/py-utils/bin/flake8"
