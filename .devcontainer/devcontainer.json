@@ -20,7 +20,8 @@
 				"ms-vsliveshare.vsliveshare",
 				"ryanluker.vscode-coverage-gutters",
 				"bungcip.better-toml",
-				"GitHub.copilot"
+				"GitHub.copilot",
+				"ms-python.isort"
 			],
 			"settings": {
 				"python.defaultInterpreterPath": "/usr/local/bin/python",
@@ -36,8 +37,12 @@
 				],
 				"flake8.path": [
 					"/usr/local/py-utils/bin/flake8"
+				],
+				"isort.path": [
+					"/usr/local/py-utils/bin/isort"
 				]
 			}
 		}
-	}
+	},
+	"onCreateCommand": "pre-commit install-hooks"
 }
