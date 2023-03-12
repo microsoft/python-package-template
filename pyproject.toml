@@ -43,7 +43,7 @@ test = [
     "pytest-runner",
     "pytest==7.2.2",
     "pytest-github-actions-annotate-failures",
-    "shellcheck-py==0.8.0.4"
+    "shellcheck-py==0.9.0.2"
 ]
 
 [project.urls]
