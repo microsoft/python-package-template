@@ -15,13 +15,13 @@
 				"ms-python.python",
 				"ms-python.vscode-pylance",
 				"ms-python.pylint",
+				"ms-python.isort",
 				"ms-python.flake8",
 				"ms-python.black-formatter",
 				"ms-vsliveshare.vsliveshare",
 				"ryanluker.vscode-coverage-gutters",
 				"bungcip.better-toml",
-				"GitHub.copilot",
-				"ms-python.isort"
+				"GitHub.copilot"
 			],
 			"settings": {
 				"python.defaultInterpreterPath": "/usr/local/bin/python",
