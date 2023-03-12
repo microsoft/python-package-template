@@ -1,6 +1,7 @@
 version: 2
 updates:
 - package-ecosystem: pip
+  prefix: "fix: "
   directory: "/"
   schedule:
     interval: daily
