@@ -1,5 +1,35 @@
 {
-    "python.testing.pytestArgs": [],
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "files.trimTrailingWhitespace": true,
+    "files.autoSave": "onFocusChange",
+    "git.autofetch": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "python.defaultInterpreterPath": "/usr/local/bin/python",
+    "python.formatting.provider": "black",
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
+    "python.testing.pytestEnabled": true,
+    "pylint.args": [
+        "--rcfile=pyproject.toml"
+    ],
+    "pylint.path": [
+        "/usr/local/py-utils/bin/pylint"
+    ],
+    "black-formatter.args": [
+        "--config=pyproject.toml"
+    ],
+    "black-formatter.path": [
+        "/usr/local/py-utils/bin/black"
+    ],
+    "flake8.args": [
+        "--toml-config=pyproject.toml"
+    ],
+    "flake8.path": [
+        "/usr/local/py-utils/bin/flake8"
+    ]
 }
