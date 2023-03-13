@@ -15,6 +15,7 @@
 				"ms-python.python",
 				"ms-python.vscode-pylance",
 				"ms-python.pylint",
+				"ms-python.isort",
 				"ms-python.flake8",
 				"ms-python.black-formatter",
 				"ms-vsliveshare.vsliveshare",
@@ -24,10 +25,6 @@
 			],
 			"settings": {
 				"python.defaultInterpreterPath": "/usr/local/bin/python",
-				"python.formatting.provider": "black",
-				"[python]": {
-					"editor.defaultFormatter": "ms-python.black-formatter"
-				},
 				"black-formatter.path": [
 					"/usr/local/py-utils/bin/black"
 				],
@@ -36,8 +33,12 @@
 				],
 				"flake8.path": [
 					"/usr/local/py-utils/bin/flake8"
+				],
+				"isort.path": [
+					"/usr/local/py-utils/bin/isort"
 				]
 			}
 		}
-	}
+	},
+	"onCreateCommand": "pre-commit install-hooks"
 }
