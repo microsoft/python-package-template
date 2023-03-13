@@ -1,7 +1,6 @@
 version: 2
 updates:
 - package-ecosystem: pip
-  prefix: "fix: "
   directory: "/"
   schedule:
     interval: daily
@@ -9,7 +8,8 @@ updates:
   open-pull-requests-limit: 10
   assignees:
   - dciborow
-  - mattchansky
   allow:
   - dependency-type: direct
   - dependency-type: indirect
+  commit-message:
+    prefix: "fix: "
