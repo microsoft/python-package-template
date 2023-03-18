@@ -92,7 +92,7 @@ The settings.json file is where you can customize various project-specific setti
 
 ## Getting Started
 
-To get started with this template, simply clone this repository and start building your project within the `src` directory.
+To get started with this template, simply 'Use This Template' to create a new repository and start building your project within the `src` directory. Try to open the project in GitHub Codespace, and to run the unit tests using the VS Code Test extension.
 
 ## Contributing
 
