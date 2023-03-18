@@ -63,7 +63,7 @@ Tox is a tool for automating Python package testing and building. It can be used
 The pyproject.toml file contains configurations for Tox, such as which environments to test and which commands to run. By using Tox, you can automate the testing and building process, making it easier to ensure that your package works in a wide range of environments.
 
 ### Development
-#### Codespaces
+#### GitHub Codespace
 GitHub Codespaces is a cloud-based tool that provides you with a fully functional development environment that you can access from anywhere. With Codespaces, you can develop, test, and deploy your code without having to install any software on your local machine.
 
 To get started, you can create a Codespace from a template repository and explore some of the essential features available to you within the codespace. You will work in the browser version of Visual Studio Code, which is initially the default editor for GitHub Codespaces. After trying out this quickstart, you can use Codespaces in other editors, and you can change the default editor.
@@ -72,7 +72,7 @@ The guide provides a detailed walkthrough of creating your Codespace, connecting
 
 In addition to these features, you can enable Settings Sync to synchronize extensions and other settings across devices and instances of VS Code. Whether Settings Sync is enabled by default in a Codespace depends on your existing settings and on whether you open the Codespace in the browser or in the VS Code desktop application.
 
-#### Devcontainer
+#### VS Code Devcontainer
 Dev Containers in Visual Studio Code allows you to use a Docker container as a complete development environment, opening any folder or repository inside a container and taking advantage of all of VS Code's features. A devcontainer.json file in your project describes how VS Code should access or create a development container with a well-defined tool and runtime stack. You can use an image as a starting point for your devcontainer.json. An image is like a mini-disk drive with various tools and an operating system pre-installed. You can pull images from a container registry, which is a collection of repositories that store images.
 
 To create a dev container in VS Code, you need to create a devcontainer.json file, which describes how VS Code should start the container and what to do after it connects. You can make and persist changes to the dev container, such as installation of new software, through use of a Dockerfile. Additional dev container configuration is also possible, including installing additional tools, automatically installing extensions, forwarding or publishing additional ports, setting runtime arguments, reusing or extending your existing Docker Compose setup, and adding more advanced container configuration.
@@ -83,7 +83,7 @@ When editing the contents of the .devcontainer folder, you'll need to rebuild fo
 
 You can also use a Dockerfile to automate dev container creation. In your Dockerfile, use FROM to designate the image, and the RUN instruction to install any software. You can use && to string together multiple commands. If you don't want to create a devcontainer.json by hand, you can select the Dev Containers: Add Dev Container Configuration Files... command from the Command Palette (F1) to add the needed files to your project as a starting point, which you can further customize for your needs.
 
-#### Setup
+#### Configuration Files
 This project includes three files in the .devcontainer and .vscode directories that enable you to use GitHub Codespaces or Docker and VSCode locally to set up an environment that includes all the necessary extensions and tools for Python development.
 
 The Dockerfile specifies the base image and dependencies needed for the development container. The Dockerfile installs the necessary dependencies for the development container, including Python 3 and flit, a tool used to build and publish Python packages. It sets an environment variable to indicate that flit should be installed globally. It then copies the pyproject.toml file into the container and creates an empty README.md file. It creates a directory src/python_package and installs only the development dependencies using flit. Finally, it removes unnecessary files, including the pyproject.toml, README.md, and src directory.
@@ -91,14 +91,6 @@ The Dockerfile specifies the base image and dependencies needed for the developm
 The devcontainer.json file defines the configuration for the development container, including the Docker image to use, any additional VSCode extensions to install, and whether or not to mount the project directory into the container. It is based on the format details provided by Microsoft, which can be found at https://aka.ms/devcontainer.json, and uses the python-3-miniconda container as its base, which can be found at https://github.com/microsoft/vscode-dev-containers/tree/v0.222.0/containers/python-3-miniconda. The file also contains customizations for VSCode, such as a list of recommended extensions for Python development and specific settings for those extensions. Additionally, it includes a command to install pre-commit hooks when the container is created, which ensures that code is properly formatted and validated before it is committed to the repository.
 
 The settings.json file contains various project-specific settings that can be configured in VSCode, such as auto-formatting options, auto-trimming of trailing whitespace, Git auto-fetching, and more. It also contains specific settings for Python, such as the default interpreter to use, the formatting provider, and whether to enable unittest or pytest. Additionally, it includes arguments for various tools such as Pylint, Black, Flake8, and Isort, which are specified in the pyproject.toml file.
-
-
-### codespace
-The project includes a Dockerfile located in the .devcontainer directory. This Dockerfile is used to create a development container with Python 3 installed, which can be used for consistent development across different environments. The Dockerfile installs the Flit package manager and upgrades pip to the latest version. It also sets the environment variable FLIT_ROOT_INSTALL to 1 to allow Flit to install packages globally.
-
-In addition to the standard installation steps, the Dockerfile also copies the pyproject.toml file to the container and creates an empty README.md file. It then creates a directory for the project's source code and installs the project's dependencies using Flit. Finally, it removes the pyproject.toml, README.md, and src directories to minimize the size of the container.
-
-By using this Dockerfile, developers can ensure that they have a consistent development environment that includes all the necessary dependencies for the project. This can help reduce errors and ensure that the code is developed and tested in a standardized environment.
 
 ## Getting Started
 
