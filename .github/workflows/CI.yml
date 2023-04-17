@@ -10,10 +10,10 @@ on:
 
 jobs:
   validation:
-    uses: microsoft/action-python/.github/workflows/validation.yml@0.3.10
+    uses: microsoft/action-python/.github/workflows/validation.yml@0.3.12
 
   publish:
-    uses: microsoft/action-python/.github/workflows/publish.yml@0.3.10
+    uses: microsoft/action-python/.github/workflows/publish.yml@0.3.12
     secrets:
       PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       TEST_PYPI_PASSWORD: ${{ secrets.TEST_PYPI_PASSWORD  }}
