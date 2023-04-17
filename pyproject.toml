@@ -93,7 +93,6 @@ ignore = [
 ]
 
 [tool.pyright]
-include = ["src/python_package"]
 exclude = [
     "**/node_modules",
     "**/__pycache__",
