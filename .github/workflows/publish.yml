@@ -4,7 +4,7 @@ on:
 
 jobs:
   publish:
-    uses: microsoft/action-python/.github/workflows/publish.yml@0.2.0
+    uses: microsoft/action-python/.github/workflows/publish.yml@0.6.4
     secrets:
       PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       TEST_PYPI_PASSWORD: ${{ secrets.TEST_PYPI_PASSWORD  }}
