@@ -1,27 +1,18 @@
-name: Testing the GitHub Pages publication
+name: Deploy Sphinx documentation to Pages
 
 on:
   push:
+#     branches: [main] # branch to trigger deployment
 
 jobs:
-  jekyll:
-    runs-on: ubuntu-latest
+  pages:
+    runs-on: ubuntu-20.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
     steps:
-      - uses: actions/checkout@v2
-
-      # Standard usage
-      - uses:  totaldebug/action-sphinx@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      # Specify the Sphinx source location as a parameter
-      - uses: totaldebug/action-sphinx@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          sphinx_src: 'docs'
-
-      # Specify the target branch (optional)
-      - uses: totaldebug/action-sphinx@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          target_branch: 'gh-pages'
+    - id: deployment
+      uses: sphinx-notes/pages@v3
