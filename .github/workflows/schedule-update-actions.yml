@@ -22,3 +22,4 @@ jobs:
         with:
           # [Required] Access token with `workflow` scope.
           token: ${{ secrets.PAT }}
+          pull_request_title: "ci: Update GitHub Actions to Latest Version"
