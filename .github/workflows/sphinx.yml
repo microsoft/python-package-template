@@ -1,0 +1,27 @@
+name: Testing the GitHub Pages publication
+
+on:
+    push:
+
+jobs:
+    jekyll:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+
+        # Standard usage
+        - uses:  totaldebug/action-sphinx@v2
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+
+        # Specify the Sphinx source location as a parameter
+        - uses: totaldebug/action-sphinx@v2
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            sphinx_src: 'docs'
+
+        # Specify the target branch (optional)
+        - uses: totaldebug/action-sphinx@v2
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            target_branch: 'gh-pages'
