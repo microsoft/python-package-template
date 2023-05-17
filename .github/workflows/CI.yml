@@ -11,6 +11,8 @@ on:
 jobs:
   validation:
     uses: microsoft/action-python/.github/workflows/validation.yml@0.6.4
+    with:
+      workdir: '.'
 
   publish:
     uses: microsoft/action-python/.github/workflows/publish.yml@0.6.4
