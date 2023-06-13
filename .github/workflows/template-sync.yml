@@ -5,7 +5,7 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.5.2 # important!
+      - uses: actions/checkout@v3.5.3 # important!
       - uses: euphoricsystems/action-sync-template-repository@v2.5.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
