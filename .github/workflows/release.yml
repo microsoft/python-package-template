@@ -1,0 +1,7 @@
+name: Python Release Workflow
+on:
+  workflow_call:
+
+jobs:
+  release:
+    uses: ac-analytics/action-python/.github/workflows/release.yml@v0.1.1

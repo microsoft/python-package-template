@@ -1,0 +1,20 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python Build Workflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [created]
+  workflow_dispatch:
+
+jobs:
+  validation:
+    uses: ac-analytics/action-python/.github/workflows/validation.yml@v0.1.1
+    with:
+      workdir: '.'
+      testdir: 'tests'

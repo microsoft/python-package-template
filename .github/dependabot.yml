@@ -4,10 +4,10 @@ updates:
   directory: "/"
   schedule:
     interval: daily
-    time: "13:00"
+    time: "16:16"
   open-pull-requests-limit: 10
   reviewers:
-  - dciborow
+  - altcoder
   allow:
   - dependency-type: direct
   - dependency-type: indirect
@@ -17,6 +17,6 @@ updates:
   directory: "/"
   schedule:
     interval: daily
-    time: "13:00"
+    time: "16:32"
   commit-message:
     prefix: "fix: "
