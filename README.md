@@ -2,7 +2,7 @@
 
 This project is a template for creating Python projects that follows the Python Standards declared in PEP 621. It uses a pyproject.toml file to configure the project.
 
-Flit is used to simplify the build process and publish to PyPI, however for private packages or more complicated setups the use of a separate setup.py and setup.cfg files is okay. However, with Flit, you can manage all relevant configurations within the pyproject.toml file, streamlining development and promoting maintainability by centralizing project metadata, dependencies, and build specifications in one place.
+Flit is used to simplify the build process and publish to PyPI, however for private packages or more complicated setups the use of a separate setup.py and setup.cfg files is recommended. With Flit, you can manage all relevant configurations within the pyproject.toml file, streamlining development and promoting maintainability by centralizing project metadata, dependencies, and build specifications in one place.
 
 ## Project Organization
 
