@@ -1,44 +1,29 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.222.0/containers/python-3-miniconda
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
-	"name": "Python Environment",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"context": ".."
+	"name": "Python 3",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/pdm:2": {}
 	},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "pdm install -d",
+	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"editorconfig.editorconfig",
-				"github.vscode-pull-request-github",
-				"ms-azuretools.vscode-docker",
 				"ms-python.python",
 				"ms-python.vscode-pylance",
 				"ms-python.pylint",
 				"ms-python.isort",
 				"ms-python.flake8",
 				"ms-python.black-formatter",
-				"ms-vsliveshare.vsliveshare",
 				"ryanluker.vscode-coverage-gutters",
-				"bungcip.better-toml",
-				"GitHub.copilot"
-			],
-			"settings": {
-				"python.defaultInterpreterPath": "/usr/local/bin/python",
-				"black-formatter.path": [
-					"/usr/local/py-utils/bin/black"
-				],
-				"pylint.path": [
-					"/usr/local/py-utils/bin/pylint"
-				],
-				"flake8.path": [
-					"/usr/local/py-utils/bin/flake8"
-				],
-				"isort.path": [
-					"/usr/local/py-utils/bin/isort"
-				]
-			}
+				"tamasfe.even-better-toml"
+			]
 		}
-	},
-	"onCreateCommand": "pre-commit install-hooks"
+	}
 }
