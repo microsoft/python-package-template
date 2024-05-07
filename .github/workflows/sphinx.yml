@@ -19,7 +19,6 @@ jobs:
         uses: pdm-project/setup-pdm@v4.1
         with:
           python-version-file: "pyproject.toml"
-          cache: true
       - name: Install dependencies
         run: pdm install
 
@@ -44,7 +43,7 @@ jobs:
       - name: Create docs
         run: |
           mkdir docs
-          sphinx-apidoc --full \
+          pdm run sphinx-apidoc --full \
             --ext-githubpages \
             --ext-viewcode \
             --ext-ifconfig \
