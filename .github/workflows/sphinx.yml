@@ -14,8 +14,14 @@ jobs:
       pages: write
       id-token: write
     steps:
-      - name: Check out repo
-        uses: actions/checkout@v4.1.4
+      - uses: actions/checkout@v4.1.4
+      - name: Setup PDM
+        uses: pdm-project/setup-pdm@v4.1
+        with:
+          python-version-file: "pyproject.toml"
+          cache: true
+      - name: Install dependencies
+        run: pdm install
 
       - name: Read pyproject.toml with yq
         id: project_version
@@ -35,11 +41,20 @@ jobs:
         with:
           cmd: yq -oy '.project.name' pyproject.toml
 
-      - name: Set environment variables from pyproject.toml
-        id: setenv
+      - name: Create docs
         run: |
-          echo "PROJECT_VERSION=${{ steps.project_version.outputs.result }}" >> $GITHUB_ENV
-          echo "PROJECT_NAME=${{ steps.project_name.outputs.result }}" >> $GITHUB_ENV
-          echo "PROJECT_AUTHOR=${{ steps.project_author.outputs.result }}" >> $GITHUB_ENV
+          mkdir docs
+          sphinx-apidoc --full \
+            --ext-githubpages \
+            --ext-viewcode \
+            --ext-ifconfig \
+            --ext-todo \
+            --ext-autodoc \
+            --ext-intersphinx \
+            -H ${{ steps.project_name.outputs.result }} \
+            -A ${{ steps.project_author.outputs.result }} \
+            -V ${{ steps.project_version.outputs.result }} \
+            -o docs src/*
+
       - id: deployment
         uses: sphinx-notes/pages@v3
