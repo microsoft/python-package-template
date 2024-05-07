@@ -23,5 +23,11 @@ jobs:
         with:
           cmd: .authors pyproject.toml
 
+      - name: Read pyproject.toml with yq
+        id: version
+        uses: mikefarah/yq@v4.43.1
+        with:
+          cmd: .version pyproject.toml
+
       - id: deployment
         uses: sphinx-notes/pages@v3
