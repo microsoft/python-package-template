@@ -32,8 +32,6 @@ jobs:
           echo "PROJECT_NAME=$(yq eval '.project.name' pyproject.toml)" >> $GITHUB_ENV
 
       - name: Create docs
-        env:
-          SPHINX_THEME: sphinx_rtd_theme
         run: |
           pdm run sphinx-apidoc --full \
             --ext-githubpages \
@@ -49,6 +47,8 @@ jobs:
 
       - id: deployment
         uses: sphinx-notes/pages@v3
+        env:
+          SPHINX_THEME: sphinx_rtd_theme
         with:
           python_version: ${{ steps.pdm_setup.outputs.python-version }}
           checkout: false
