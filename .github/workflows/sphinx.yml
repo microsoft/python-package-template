@@ -15,35 +15,24 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4.1.4
+
       - name: Setup PDM
         id: pdm_setup
         uses: pdm-project/setup-pdm@v4.1
         with:
           python-version-file: "pyproject.toml"
+
       - name: Install dependencies
         run: pdm install
 
-      - name: Read pyproject.toml with yq
-        id: project_version
-        uses: mikefarah/yq@v4.43.1
-        with:
-          cmd: yq -oy '.project.version' pyproject.toml
-
-      - name: Read pyproject.toml with yq
-        id: project_author
-        uses: mikefarah/yq@v4.43.1
-        with:
-          cmd: yq -oy '.project.authors.0.name' pyproject.toml
-
-      - name: Read pyproject.toml with yq
-        id: project_name
-        uses: mikefarah/yq@v4.43.1
-        with:
-          cmd: yq -oy '.project.name' pyproject.toml
+      - name: Read pyproject.toml
+        run: |
+          echo "PROJECT_VERSION=$(yq eval '.project.version' pyproject.toml)" >> $GITHUB_ENV
+          echo "PROJECT_AUTHOR=$(yq eval '.project.authors[0].name' pyproject.toml)" >> $GITHUB_ENV
+          echo "PROJECT_NAME=$(yq eval '.project.name' pyproject.toml)" >> $GITHUB_ENV
 
       - name: Create docs
         run: |
-          mkdir docs
           pdm run sphinx-apidoc --full \
             --ext-githubpages \
             --ext-viewcode \
@@ -51,9 +40,9 @@ jobs:
             --ext-todo \
             --ext-autodoc \
             --ext-intersphinx \
-            -H ${{ steps.project_name.outputs.result }} \
-            -A ${{ steps.project_author.outputs.result }} \
-            -V ${{ steps.project_version.outputs.result }} \
+            -H $PROJECT_NAME \
+            -A $PROJECT_AUTHOR \
+            -V $PROJECT_VERSION \
             -o docs src/*/
 
       - id: deployment
