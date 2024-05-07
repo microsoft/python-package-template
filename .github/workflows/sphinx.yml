@@ -51,4 +51,4 @@ jobs:
         with:
           python_version: ${{ steps.pdm_setup.outputs.python-version }}
           checkout: false
-          sphinx_build_options: html_theme='$SPHINX_THEME'
+          sphinx_build_options: -D html_theme=${{ env.SPHINX_THEME }}
