@@ -21,19 +21,19 @@ jobs:
         id: project_version
         uses: mikefarah/yq@v4.43.1
         with:
-          cmd: -oy '.project.version' pyproject.toml
+          cmd: yq -oy '.project.version' pyproject.toml
 
       - name: Read pyproject.toml with yq
         id: project_author
         uses: mikefarah/yq@v4.43.1
         with:
-          cmd: -oy '.project.authors.0.name' pyproject.toml
+          cmd: yq -oy '.project.authors.0.name' pyproject.toml
 
       - name: Read pyproject.toml with yq
         id: project_name
         uses: mikefarah/yq@v4.43.1
         with:
-          cmd: -oy '.project.name' pyproject.toml
+          cmd: yq -oy '.project.name' pyproject.toml
 
       - name: Set environment variables from pyproject.toml
         id: setenv
