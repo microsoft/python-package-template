@@ -53,7 +53,7 @@ jobs:
             -H ${{ steps.project_name.outputs.result }} \
             -A ${{ steps.project_author.outputs.result }} \
             -V ${{ steps.project_version.outputs.result }} \
-            -o docs src/*
+            -o docs src/*/
 
       - id: deployment
         uses: sphinx-notes/pages@v3
