@@ -16,6 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.4
       - name: Setup PDM
+        id: pdm_setup
         uses: pdm-project/setup-pdm@v4.1
         with:
           python-version-file: "pyproject.toml"
@@ -57,3 +58,5 @@ jobs:
 
       - id: deployment
         uses: sphinx-notes/pages@v3
+        with:
+          python_version: ${{ steps.pdm_setup.outputs.python-version }}
