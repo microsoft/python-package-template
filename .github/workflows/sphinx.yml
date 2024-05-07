@@ -32,6 +32,8 @@ jobs:
           echo "PROJECT_NAME=$(yq eval '.project.name' pyproject.toml)" >> $GITHUB_ENV
 
       - name: Create docs
+        env:
+          SPHINX_THEME: sphinx_rtd_theme
         run: |
           pdm run sphinx-apidoc --full \
             --ext-githubpages \
