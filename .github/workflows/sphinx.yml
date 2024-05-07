@@ -47,8 +47,7 @@ jobs:
 
       - id: deployment
         uses: sphinx-notes/pages@v3
-        env:
-          SPHINX_THEME: sphinx_rtd_theme
         with:
           python_version: ${{ steps.pdm_setup.outputs.python-version }}
           checkout: false
+          sphinx_build_options: html_theme='sphinx_rtd_theme'
