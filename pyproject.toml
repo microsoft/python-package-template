@@ -13,6 +13,9 @@ classifiers = [
 ]
 dependencies = []
 
+[tool.project-customizations.docs]
+theme = "sphinx_rtd_theme"
+
 [project.urls]
 Documentation = "https://github.com/RedNoodlesOrg/python-package-template/tree/main#readme"
 Source = "https://github.com/RedNoodlesOrg/python-package-template"

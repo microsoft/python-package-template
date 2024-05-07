@@ -30,6 +30,7 @@ jobs:
           echo "PROJECT_VERSION=$(yq eval '.project.version' pyproject.toml)" >> $GITHUB_ENV
           echo "PROJECT_AUTHOR=$(yq eval '.project.authors[0].name' pyproject.toml)" >> $GITHUB_ENV
           echo "PROJECT_NAME=$(yq eval '.project.name' pyproject.toml)" >> $GITHUB_ENV
+          echo "SPHINX_THEME=$(yq eval '.tool.project-customizations.docs.theme' pyproject.toml)" >> $GITHUB_ENV
 
       - name: Create docs
         run: |
@@ -50,4 +51,4 @@ jobs:
         with:
           python_version: ${{ steps.pdm_setup.outputs.python-version }}
           checkout: false
-          sphinx_build_options: html_theme='sphinx_rtd_theme'
+          sphinx_build_options: html_theme='$SPHINX_THEME'
