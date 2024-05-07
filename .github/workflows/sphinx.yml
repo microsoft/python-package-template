@@ -14,5 +14,14 @@ jobs:
       pages: write
       id-token: write
     steps:
+      - name: Check out repo
+        uses: actions/checkout@v4.1.4
+
+      - name: Read pyproject.toml with yq
+        id: authors
+        uses: mikefarah/yq@v4.43.1
+        with:
+          cmd: .authors pyproject.toml
+
       - id: deployment
         uses: sphinx-notes/pages@v3
