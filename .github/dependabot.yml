@@ -9,8 +9,7 @@ updates:
   - package-ecosystem: pip
     directory: "/"
     schedule:
-      interval: daily
-      time: "13:00"
+      interval: weekly
     open-pull-requests-limit: 10
     reviewers:
       - RedNoodlesOrg/python-team
@@ -22,11 +21,10 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: daily
+      interval: weekly
       time: "13:00"
     commit-message:
       prefix: "fix: "
- - package-ecosystem: "devcontainers"
-   directory: "/"
-   schedule:
-     interval: weekly
+    open-pull-requests-limit: 10
+    reviewers:
+      - RedNoodlesOrg/actions-team
