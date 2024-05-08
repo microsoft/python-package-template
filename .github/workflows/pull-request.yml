@@ -1,0 +1,29 @@
+name: Check pull request
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.1.4
+
+      - name: Setup PDM
+        id: pdm_setup
+        uses: pdm-project/setup-pdm@v4.1
+        with:
+          python-version-file: "pyproject.toml"
+      - name: Install dependencies
+        run: pdm install --group dev
+
+      - name: Cache pre-commit
+        uses: actions/cache@v4.0.2
+        with:
+          path: ~/.cache/pre-commit
+          key: ${{ runner.os }}-precommit-${{ hashFiles('.pre-commit-config.yaml') }}
+
+      - name: Run pre-commit
+        run: pre-commit run --all-files
