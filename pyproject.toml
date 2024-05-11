@@ -3,7 +3,7 @@ requires = ["flit"]
 build-backend = "flit.buildapi"
 
 [project]
-name =  "my_samples"
+name =  "py-project-toml"
 authors = [
     {name = "Daniel Ciborowski", email = "dciborow@microsoft.com"},
 ]
@@ -312,4 +312,16 @@ deprecated-modules="optparse,tkinter.tix"
 overgeneral-exceptions= [
     "BaseException",
     "Exception"
+]
+
+[tool.poetry]
+name = "mySamplePack"
+version = "0.1.0"
+description = ""
+authors = ["shimizu"]
+readme = "README.md"
+
+
+packages = [
+    { include = "src/python_package" }
 ]
