@@ -3,7 +3,7 @@ requires = ["flit"]
 build-backend = "flit.buildapi"
 
 [project]
-name =  "py-project-toml"
+name =  "my_samples"
 authors = [
     {name = "Daniel Ciborowski", email = "dciborow@microsoft.com"},
 ]
