@@ -18,7 +18,7 @@ jobs:
           token: ${{ secrets.PAT }}
 
       - name: Run GitHub Actions Version Updater
-        uses: saadmk11/github-actions-version-updater@v0.7.4
+        uses: saadmk11/github-actions-version-updater@v0.8.1
         with:
           # [Required] Access token with `workflow` scope.
           token: ${{ secrets.PAT }}
