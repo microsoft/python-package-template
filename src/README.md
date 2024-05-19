@@ -1,1 +1,1 @@
-This directoy stores each Python Package.
+This directory stores each Python Package.
