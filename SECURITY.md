@@ -6,7 +6,7 @@ Update `package_name` to the name of the package.
 Remove the comment when this is done.
 -->
 
-We will support the latest stable release of `package_name`. Please make sure you are using the most recent version before reporting a security issue.
+We will support the latest stable release of `package_name`. Please ensure you are using the most recent version before reporting a security issue.
 
 <!--
 State the versions that you provide supports.
