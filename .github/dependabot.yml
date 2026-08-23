@@ -20,3 +20,5 @@ updates:
     time: "13:00"
   commit-message:
     prefix: "fix: "
+  cooldown:
+    default-days: 7
