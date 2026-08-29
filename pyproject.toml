@@ -310,6 +310,6 @@ deprecated-modules="optparse,tkinter.tix"
 
 [tool.pylint.'EXCEPTIONS']
 overgeneral-exceptions= [
-    "BaseException",
-    "Exception"
+    "builtin.BaseException",
+    "builtin.Exception"
 ]
