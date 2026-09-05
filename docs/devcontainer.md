@@ -1,7 +1,7 @@
 # GitHub Codespace
 
 The project's Codespace configuration is located in ".devcontainer". It includes the "Dockerfile" for the development container.
-The project can be opened directly in a Codespace. 
+The project can be opened directly in a Codespace.
 
 ## Running Unit Tests
 
