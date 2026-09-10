@@ -11,9 +11,9 @@ from python_package.hello_world import hello_world
 def hello_test():
     """
     This defines the expected usage, which can then be used in various test cases.
-    Pytest will not execute this code directly, since the function does not contain the suffex "test"
+    Pytest will not execute this code directly, since the function does not contain the prefix "test"
     """
-    hello_world()
+    assert hello_world() == "string-0"
 
 
 def test_hello(unit_test_mocks: None):
@@ -26,7 +26,7 @@ def test_hello(unit_test_mocks: None):
 
 def test_int_hello():
     """
-    This test is marked implicitly as an integration test because the name contains "_init_"
+    This test is marked implicitly as an integration test because the name contains "_int_"
     https://docs.pytest.org/en/6.2.x/example/markers.html#automatically-adding-markers-based-on-test-names
     """
     hello_test()
