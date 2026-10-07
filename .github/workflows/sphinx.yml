@@ -15,4 +15,4 @@ jobs:
       id-token: write
     steps:
     - id: deployment
-      uses: sphinx-notes/pages@v3
+      uses: sphinx-notes/pages@39eda6fbd411e7cee6e814ef84a69bd806346e92 # v3
